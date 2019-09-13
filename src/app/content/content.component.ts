@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+import * as Inputmask from "inputmask"
 
 @Component({
   selector: 'app-content',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    Inputmask().mask(document.querySelectorAll("input"));
   }
+
+  gotoCadastroClientes() {
+    this.router.navigate(['form-cliente']);
+    
+
+   }
 
 }
