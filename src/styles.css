@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/*boots Css*/
+
+.right{
+float: right;
+}
+
+.left{
+    float: left;
+}
+.w33{
+ width: 33.3%;
+}
+.clear{
+    clear: both;
+}
+
+/*Estilização*/
+
+.header{
+    border: 3px solid red;
+}
+
+.logo{
+    color:red;
+    margin: 20px 20px;
+    
+}
+
+.criar{
+  
+}
