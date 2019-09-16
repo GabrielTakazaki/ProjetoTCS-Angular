@@ -70,7 +70,7 @@ float: right;
 
 .acesso-rapido{
     border: 3px solid rgba(150, 185, 224, 0.274);
-  
+  width: 100%;
     text-align: center;
     height: 238px;
     
@@ -80,24 +80,21 @@ float: right;
     color: rgb(68, 160, 148);
 }
 
-.container-acesso li{
-    list-style: none;
-    text-align: center;
-    border: 1px solid rgba(255, 0, 0, 0);
-    width: 50%;
-    margin-right: 60px;
-    margin: auto;
+.acesso-rapido button{
+    width: 100%;
 }
 
+.container-acesso li{
+    list-style: none;
+    width: 100%;
 
+}
 
 .invista img{
-    
     max-width:100%;
 	height:auto;
-  
-  bottom: 0;
-  transform: translateX(0px);
+    bottom: 0;
+    transform: translateX(0px);
    
 }
 
