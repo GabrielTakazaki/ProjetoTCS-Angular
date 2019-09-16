@@ -22,6 +22,7 @@ float: right;
 .left{
     float: left;
 }
+
 .w33{
  width: 33.3%;
 }
@@ -29,44 +30,84 @@ float: right;
     clear: both;
 }
 
+.w50{
+    width: 50%;
+}
+
 /*-----------------Estilização ----------------*/
 
 .header{
-  margin: 0;
-    background-color: rgba(0, 0, 0, 0);
-    height: 150px;
+   /* background-color: rgba(0, 0, 0, 0);*/
+    height: 20%;
+    background-image: url(assets/header1.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
-.logo{
-    color:red;
-    margin: 15px 15px;
-     
-}
+
 
 .logo img{
-    width: 10%;
-    margin: 10px 15px;
+    width: 12%;
+    margin-top: 30px;  
+    margin-left: 50px;
 }
 
 .criar{
- 
-  margin: 0 30px;
-  margin-top: -30px;
+   margin-right: 6%;
 }
 
 .acesso{
-    margin: 0 30px;
-    margin-top: -30px;
+    margin-bottom: 30px;
+    margin-right: 10%;
+}
 
+
+.facilitar{
+    border: 3px solid rgba(150, 185, 224, 0.274);
 }
-.conteudo{
-    background-color: rgb(151, 151, 151);
-    height: 600px;
+
+
+
+.acesso-rapido{
+    border: 3px solid rgba(150, 185, 224, 0.274);
+  
+    text-align: center;
+    height: 238px;
+    
 }
+
+.acesso-rapido h3{
+    color: rgb(68, 160, 148);
+}
+
+.container-acesso li{
+    list-style: none;
+    text-align: center;
+    border: 1px solid rgba(255, 0, 0, 0);
+    width: 50%;
+    margin-right: 60px;
+    margin: auto;
+}
+
+
+
+.invista img{
+    
+    max-width:100%;
+	height:auto;
+  
+  bottom: 0;
+  transform: translateX(0px);
+   
+}
+
 
 .footer{
     height: 30px;
     width: 100%;
     background-color: aquamarine;
     text-align: center;
+    bottom: 0;
 }
+
+
