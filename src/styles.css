@@ -70,23 +70,27 @@ float: right;
 
 .acesso-rapido{
     border: 3px solid rgba(150, 185, 224, 0.274);
-  
+    width: 100%;
     text-align: center;
-    height: 238px;
-    
+       
 }
 
-.acesso-rapido h3{
+.acesso-rapido h2{
     color: rgb(68, 160, 148);
 }
 
 .container-acesso li{
     list-style: none;
-    text-align: center;
-    border: 1px solid rgba(255, 0, 0, 0);
-    width: 50%;
-    margin-right: 60px;
-    margin: auto;
+      width: 100%;
+}
+
+.container-acesso button{
+  margin-bottom: 2px;
+    width: 100%;
+}
+
+.container-acesso ul{
+    width: 100%;
 }
 
 
