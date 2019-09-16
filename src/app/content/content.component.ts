@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import * as Inputmask from "inputmask";
 import { ClienteServiceService } from '../service/cliente-service.service';
-import { Cliente } from '../cliente';
 
 @Component({
   selector: 'app-content',
@@ -17,7 +15,6 @@ export class ContentComponent implements OnInit {
               private service:ClienteServiceService) { }
 
   ngOnInit() {
-    Inputmask().mask(document.querySelectorAll("input"));
   }
 
   addCliente(){

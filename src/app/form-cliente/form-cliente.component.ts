@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as Inputmask from "inputmask"
 
 @Component({
   selector: 'app-form-cliente',
@@ -11,7 +10,6 @@ export class FormClienteComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    Inputmask().mask(document.querySelectorAll("input"));
   }
 
 }
