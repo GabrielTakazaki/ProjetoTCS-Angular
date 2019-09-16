@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as Inputmask from "inputmask";
-
+import { Cliente } from '../cliente';
+import { Router } from '@angular/router';
+import { ClienteServiceService } from '../service/cliente-service.service';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +11,34 @@ import * as Inputmask from "inputmask";
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  private cliente: Cliente
+  constructor(private router: Router, private service: ClienteServiceService) { }
 
+  private msg : String
   ngOnInit() {
     Inputmask().mask(document.querySelectorAll("input"))
+    this.cliente = new Cliente();
   }
 
+  entrar() {
+    if (this.cliente.cpfCliente != null && this.cliente.password != null) {
+      this.service.verificaClient(this.cliente).subscribe((cliente) => {
+        if (cliente)
+          alert("LOGADO")
+        else if(this.msg != null){
+          this.msg = "Informe os dados novamente, pois estão incorretos"
+        }
+        else {
+          this.msg = "Informe os dados corretamente"
+        }
+      })
+    }
+    else{
+        this.msg = "Por favor informe o CPF e a senha"
+    }
+
+    setTimeout(()=>{    //<<<---    using ()=> syntax
+        this.msg = null;
+   }, 5000);
+}
 }

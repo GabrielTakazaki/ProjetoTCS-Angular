@@ -1,6 +1,6 @@
 export class Cliente {
-    idCliente:BigInteger;
-    cpfCliente:BigInteger;
+    idCliente:Number;
+    cpfCliente:String;
     password:String;
     nomeCliente:String;
 }

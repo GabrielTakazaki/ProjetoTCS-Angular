@@ -11,8 +11,21 @@ const baseUrl:String = "http://localhost:8080"
 export class ClienteServiceService {
 
   constructor(private http: HttpClient) {  }
-  
+  private options:HttpParams
   createClient(cliente:Cliente){
-    return this.http.post(baseUrl + '/cliente/clienteAdd', JSON.stringify(cliente));
+    return this.http.post(baseUrl + '/cliente/clienteAdd', JSON.stringify(cliente), 
+    {headers: {'Content-Type': 'application/json'}});
+  }
+
+  
+  verificaClient(cliente:Cliente){
+    return this.http.post(baseUrl + "/cliente/verificaCliente", JSON.stringify(cliente), {headers: {'Content-Type': 'application/json'}})
+  }
+
+  buscarClient(id:Number){
+    this.options= new HttpParams();
+    this.options = this.options.append('id',id.toString())
+    const param = {params : this.options}
+    return this.http.get(baseUrl + "/cliente/buscarCliente", param)
   }
 }
