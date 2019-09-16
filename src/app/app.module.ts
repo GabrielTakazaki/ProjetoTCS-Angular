@@ -11,6 +11,7 @@ import { FormClienteComponent } from './form-cliente/form-cliente.component';
 import { HttpClient } from 'selenium-webdriver/http';
 import { FormsModule } from "@angular/forms"
 import { ClienteServiceService } from './service/cliente-service.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ClienteServiceService } from './service/cliente-service.service';
     ContentComponent,
     FooterComponent,
     FormClienteComponent,
+    LoginComponent,
     
   ],
   imports: [
