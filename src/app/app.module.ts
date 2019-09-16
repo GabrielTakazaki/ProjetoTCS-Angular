@@ -11,6 +11,9 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import {RouterModule, Routes} from '@angular/router';
 
+import {ControllerClienteService} from './services/controller-cliente.service'
+import { from } from 'rxjs';
+
 const approutes: Routes =[
   {path: 'teste', component: ContentComponent},
   {path: 'login', component: LoginComponent}
@@ -23,7 +26,6 @@ const approutes: Routes =[
     HeaderComponent,
     ContentComponent,
     FooterComponent,
-    
     LoginComponent
   ],
   imports: [
@@ -33,7 +35,7 @@ const approutes: Routes =[
     MatDialogModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ControllerClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
