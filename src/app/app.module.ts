@@ -12,6 +12,15 @@ import { HttpClient } from 'selenium-webdriver/http';
 import { FormsModule } from "@angular/forms"
 import { ClienteServiceService } from './service/cliente-service.service';
 import { LoginComponent } from './login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes:Routes=[
+  {path:'', component:ContentComponent},
+    {path:'cadastro', component:FormClienteComponent},
+    {path:'login',component: LoginComponent}
+];
+
+
 
 @NgModule({
   declarations: [
@@ -27,7 +36,8 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     ClienteServiceService
