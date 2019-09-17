@@ -6,7 +6,7 @@
             <form class="mt-5" (ngSubmit)="entrar()">
                 
                 <div class="form-group">
-                    <input type="text" class="form-control login" maxlength="14" placeholder="CPF" data-inputmask="'mask': '999.999.999-99'" name="cpfCliente" [(ngModel)]="cliente.cpfCliente">
+                    <input type="text" class="form-control login" maxlength="14" placeholder="CPF" mask='000.000.000-00' name="cpfCliente" [(ngModel)]="cliente.cpfCliente">
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control login" id="exampleInputPassword1" placeholder="Senha" [(ngModel)]="cliente.password" name="password">

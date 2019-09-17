@@ -8,7 +8,7 @@
                     <input type="text" class="form-control cadastro" aria-describedby="emailHelp" [(ngModel)]="cliente.nomeCliente" name="nomeCliente" placeholder="Nome"/>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control cadastro" maxlength="14" placeholder="CPF" data-inputmask="'mask': '999.999.999-99'" name="cpfCliente" [(ngModel)]="cliente.cpfCliente"/>
+                    <input type="text" class="form-control cadastro" maxlength="14" placeholder="CPF" mask='000.000.000-00' name="cpfCliente" [(ngModel)]="cliente.cpfCliente"/>
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control cadastro" placeholder="Senha" [(ngModel)]="cliente.password" name="password"/>

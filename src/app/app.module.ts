@@ -13,13 +13,14 @@ import { FormsModule } from "@angular/forms"
 import { ClienteServiceService } from './service/cliente-service.service';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+import {NgxMaskModule, IConfig} from 'ngx-mask'
+export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 const appRoutes:Routes=[
   {path:'', component:ContentComponent},
     {path:'cadastro', component:FormClienteComponent},
     {path:'login',component: LoginComponent}
 ];
-
 
 
 @NgModule({
@@ -37,7 +38,8 @@ const appRoutes:Routes=[
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgxMaskModule.forRoot(options)
   ],
   providers: [
     ClienteServiceService
