@@ -13,11 +13,15 @@ import { FormsModule } from "@angular/forms"
 import { ClienteServiceService } from './service/cliente-service.service';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { InvestimentoComponent } from './investimento/investimento.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 const appRoutes:Routes=[
-  {path:'', component:ContentComponent},
+  
+    {path:'', component:ContentComponent},
     {path:'cadastro', component:FormClienteComponent},
-    {path:'login',component: LoginComponent}
+    {path:'login',component: LoginComponent},
+    {path:'investimento', component: InvestimentoComponent}
 ];
 
 
@@ -30,6 +34,7 @@ const appRoutes:Routes=[
     FooterComponent,
     FormClienteComponent,
     LoginComponent,
+    InvestimentoComponent,
     
   ],
   imports: [
@@ -37,6 +42,7 @@ const appRoutes:Routes=[
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    AngularFontAwesomeModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
