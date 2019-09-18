@@ -13,8 +13,13 @@ import { FormsModule } from "@angular/forms"
 import { ClienteServiceService } from './service/cliente-service.service';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+<<<<<<< HEAD
 import { InvestimentoComponent } from './investimento/investimento.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+=======
+import {NgxMaskModule, IConfig} from 'ngx-mask'
+export let options: Partial<IConfig> | (() => Partial<IConfig>);
+>>>>>>> e10b698c070a13dfa20a9d7be14d041524926abb
 
 const appRoutes:Routes=[
   
@@ -23,7 +28,6 @@ const appRoutes:Routes=[
     {path:'login',component: LoginComponent},
     {path:'investimento', component: InvestimentoComponent}
 ];
-
 
 
 @NgModule({
@@ -42,8 +46,13 @@ const appRoutes:Routes=[
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+<<<<<<< HEAD
     AngularFontAwesomeModule,
     RouterModule.forRoot(appRoutes)
+=======
+    RouterModule.forRoot(appRoutes),
+    NgxMaskModule.forRoot(options)
+>>>>>>> e10b698c070a13dfa20a9d7be14d041524926abb
   ],
   providers: [
     ClienteServiceService
