@@ -37,12 +37,12 @@ float: right;
 /*-----------------Estilização ----------------*/
 
 .header{
-   /* background-color: rgba(0, 0, 0, 0);*/
-    height: 20%;
-    background-image: url(assets/header1.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
+    /* background-color: rgba(0, 0, 0, 0);*/
+     height: 20%;
+     background-image: url(assets/header1.png);
+     background-repeat: no-repeat;
+     background-size: 100%;
+ }
 
 
 
@@ -106,7 +106,7 @@ float: right;
 }
 
 .footer{
-    position: unset;
+    position: relative;
     height: 30px;
     width: 100%;
     background-color: aquamarine;

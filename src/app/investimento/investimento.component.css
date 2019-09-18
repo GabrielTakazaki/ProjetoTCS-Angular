@@ -42,10 +42,21 @@
 }
 
 .card{
-    margin: 10px 15px;
+    margin: 20px 15px;
     text-align: center;
 }
 
 .btn-light{
     border: 1px solid rgba(0, 0, 0, .6);
+}
+
+.container{
+    margin: 50px;
+    margin-left:10%; 
+    margin-bottom: 11%;
+    overflow:hidden;
+}
+
+.card{
+    padding: 5px 5px;
 }
