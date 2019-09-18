@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row box-login">
+        <div class="col-12">
+            <p class="text-center alert alert-danger" id="mensagem" [ngClass]="{'class': true}" *ngIf="msg != null">{{msg}}</p>
+                <h1>Transferencia </h1>
+            <form class="mt-5" (ngSubmit)="entrar()">
+                
+                <div class="form-conta">
+                    <input type="text" class="form-control Transferencia" maxlength="14" name="contaCliente" placeholder="Conta" [(ngModel)]="cliente.contaCliente">
+                </div>
+                <div class="form-valor">
+                    <input type="value" class="form-control Transferencia" name="calorCliente"  placeholder="Valor" [(ngModel)]="Valor.contaCliente">
+                </div>
+                <button type="submit" class="btn btn-login btn-info">Transferir</button> 
+                
+            </form>
+        </div>
+        <div>
+             <h2>Historico</h2>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,7 @@ import { FormsModule } from "@angular/forms"
 import { ClienteServiceService } from './service/cliente-service.service';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { TransferenciaComponent } from './transferencia/transferencia.component';
 
 const appRoutes:Routes=[
   {path:'', component:ContentComponent},
@@ -30,6 +31,7 @@ const appRoutes:Routes=[
     FooterComponent,
     FormClienteComponent,
     LoginComponent,
+    TransferenciaComponent,
     
   ],
   imports: [
