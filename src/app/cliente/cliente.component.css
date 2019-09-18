@@ -51,6 +51,9 @@
 .saldo{
   color: aliceblue;
 }
+.btn-light{
+  border: 1px solid rgba(0, 0, 0, .6);
+}
 
 
 
