@@ -1,0 +1,38 @@
+.investimento {
+    border: 2px solid;
+    margin: 50px 0;
+}
+
+.investimento input [type=submit]{
+    margin: 10px 30px;
+}
+
+
+.poupanca{
+    border: 2px solid ;
+    width: 33.3%;
+    height: 200px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.cdi{
+    border: 2px solid ;
+    width: 33.3%;
+    height: 200px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.ipca{
+    border: 2px solid ;
+    width: 33.3%;
+    height: 200px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.img{
+    width: 30%;
+}
+

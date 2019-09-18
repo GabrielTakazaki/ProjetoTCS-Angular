@@ -23,7 +23,7 @@ export class FormClienteComponent implements OnInit {
     }
 
     addCliente() {
-        if (this.cpf(this.cliente.formataCpf())) {
+        if (this.cpf(this.cliente.cpfCliente.toString())) {
             if (this.cliente.password === this.verificaPassword) {
                 console.log(this.cliente)
                 this.service.createClient(this.cliente).subscribe((cliente) => {
