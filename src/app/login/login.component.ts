@@ -10,8 +10,10 @@ import { ClienteServiceService } from '../service/cliente-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  [x: string]: any;
 
   private cliente: Cliente
+  private a:Cliente
   constructor(private router: Router, private service: ClienteServiceService) { }
 
   private msg : String
@@ -23,8 +25,14 @@ export class LoginComponent implements OnInit {
   entrar() {
     if (this.cliente.cpfCliente != null && this.cliente.password != null) {
       this.service.verificaClient(this.cliente).subscribe((cliente) => {
-        if (cliente)
-          alert("LOGADO")
+        if (cliente){
+          alert("Logado com sucesso")
+          this.service.buscarCpf(this.cliente.cpfCliente).subscribe((result)=>{
+            this.service.setter(result)
+          })
+          this.router.navigateByUrl('cliente')
+          
+        }
         else if(this.msg != null){
           this.msg = "Informe os dados novamente, pois estão incorretos"
         }
@@ -41,4 +49,6 @@ export class LoginComponent implements OnInit {
         this.msg = null;
    }, 5000);
 }
+
+   
 }
