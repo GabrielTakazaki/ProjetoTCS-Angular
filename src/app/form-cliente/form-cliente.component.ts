@@ -23,13 +23,13 @@ export class FormClienteComponent implements OnInit {
     }
 
     addCliente() {
-        if (this.cpf(this.cliente.cpfCliente.toString())) {
+        if (this.cpf(this.cliente.cpfCliente.toString())) {   
             if (this.cliente.password === this.verificaPassword) {
                 console.log(this.cliente)
                 this.service.createClient(this.cliente).subscribe((cliente) => {
                     console.log(cliente)
                 }, (error: HttpErrorResponse) => {
-                    this.msg = error.error.text;
+                    this.msg = error.error.text;                 
                 });
             }
             else {
@@ -37,13 +37,13 @@ export class FormClienteComponent implements OnInit {
 
             }
         }else{
-            this.msg = "CPF Invalido"
-        }
+            this.msg = "CPF Invalido"   
+        }       
         setTimeout(()=>{    //<<<---    using ()=> syntax
             this.msg = null;
        }, 5000);
     }
-
+      
     cpf(cpf: string): boolean {
         if (cpf == null) {
             return false;
@@ -97,7 +97,7 @@ export class FormClienteComponent implements OnInit {
             return false;
         }
         else {
-            return true;
+            return true;   
         }
     }
 

@@ -7,7 +7,7 @@ import { ClienteServiceService } from '../service/cliente-service.service';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent implements OnInit {
-
+  
   constructor(private service:ClienteServiceService) { }
 
   ngOnInit() {
