@@ -36,3 +36,27 @@
     width: 30%;
 }
 
+.btn-success{
+    border: 1px solid green;
+    width: 120px; margin: 20px 10px;
+}
+
+.card{
+    margin: 20px 15px;
+    text-align: center;
+}
+
+.btn-light{
+    border: 1px solid rgba(0, 0, 0, .6);
+}
+
+.container{
+    margin: 50px;
+    margin-left:10%; 
+    margin-bottom: 11%;
+    overflow:hidden;
+}
+
+.card{
+    padding: 5px 5px;
+}

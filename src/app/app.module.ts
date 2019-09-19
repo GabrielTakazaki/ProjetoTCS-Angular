@@ -17,6 +17,7 @@ import { TransferenciaComponent } from './transferencia/transferencia.component'
 import { InvestimentoComponent } from './investimento/investimento.component';
 import {NgxMaskModule, IConfig} from 'ngx-mask';
 import { ClienteComponent } from './cliente/cliente.component';
+
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 const appRoutes:Routes=[

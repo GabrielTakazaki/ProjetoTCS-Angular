@@ -33,7 +33,7 @@ export class FormClienteComponent implements OnInit {
                 });
             }
             else {
-                this.msg = "As senhas não conferem seu arrombado"
+                this.msg = "As senhas não conferem"
 
             }
         }else{
