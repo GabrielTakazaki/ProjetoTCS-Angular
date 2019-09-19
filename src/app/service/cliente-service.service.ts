@@ -12,7 +12,7 @@ export class ClienteServiceService {
   
   private cliente = new Cliente();
 
-  getter(){
+  getter(): Cliente{
     return this.cliente
   }
 
