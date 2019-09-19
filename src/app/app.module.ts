@@ -10,7 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormClienteComponent } from './form-cliente/form-cliente.component';
 import { HttpClient } from 'selenium-webdriver/http';
 import { FormsModule } from "@angular/forms"
-import { ClienteServiceService } from './service/cliente-service.service';
+import { ClienteServiceService } from './cliente-service.service';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TransferenciaComponent } from './transferencia/transferencia.component';
