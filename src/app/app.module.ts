@@ -17,6 +17,7 @@ import { TransferenciaComponent } from './transferencia/transferencia.component'
 import { InvestimentoComponent } from './investimento/investimento.component';
 import {NgxMaskModule, IConfig} from 'ngx-mask';
 import { ClienteComponent } from './cliente/cliente.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -26,7 +27,8 @@ const appRoutes:Routes=[
     {path:'cadastro', component:FormClienteComponent},
     {path:'login',component: LoginComponent},
     {path:'investimento', component: InvestimentoComponent},
-    {path:'cliente', component: ClienteComponent}
+    {path:'cliente', component: ClienteComponent},
+    {path:'perfil', component: PerfilComponent}
 ];
 
 
@@ -40,7 +42,8 @@ const appRoutes:Routes=[
     LoginComponent,
     TransferenciaComponent,
     InvestimentoComponent,
-    ClienteComponent
+    ClienteComponent,
+    PerfilComponent
     
   ],
   imports: [
