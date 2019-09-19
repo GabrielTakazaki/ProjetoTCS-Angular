@@ -25,7 +25,8 @@ const appRoutes:Routes=[
     {path:'cadastro', component:FormClienteComponent},
     {path:'login',component: LoginComponent},
     {path:'investimento', component: InvestimentoComponent},
-    {path:'cliente', component: ClienteComponent}
+    {path:'cliente', component: ClienteComponent},
+    {path:'transferencia', component: TransferenciaComponent}
 ];
 
 
