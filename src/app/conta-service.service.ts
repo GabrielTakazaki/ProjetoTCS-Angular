@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Conta } from 'src/app/conta'
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ClienteServiceService } from './cliente-service.service';
+import { Deposito } from './deposito';
 
 const baseUrl: String = "http://localhost:8080/conta"
 
@@ -34,5 +35,9 @@ export class ContaServiceService {
 
     listAll(){
         return this.http.get<Conta[]>(baseUrl + '/listaContas/')
+    }
+
+    depositar(deposito:Deposito){
+        return this.http.put(baseUrl + "/depositar", JSON.stringify(deposito), {headers: { 'Content-Type': 'application/json' }})
     }
 }

@@ -36,11 +36,11 @@ export class ClienteComponent implements OnInit {
     }
 
     chamaSal(){
-        this.router.navigate([''])
+        this.router.navigate(['/deposito'])
     }
 
     chamaEmpr(){
-        this.router.navigate([''])
+        this.router.navigate(['/credito'])
     }
     
 
