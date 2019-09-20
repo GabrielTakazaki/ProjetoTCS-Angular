@@ -1,7 +1,7 @@
-import { Tranferencia } from './tranferencia';
+import { Transferencia } from './transferencia';
 
 describe('Tranferencia', () => {
   it('should create an instance', () => {
-    expect(new Tranferencia()).toBeTruthy();
+    expect(new Transferencia()).toBeTruthy();
   });
 });

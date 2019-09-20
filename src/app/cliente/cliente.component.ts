@@ -19,11 +19,11 @@ export class ClienteComponent implements OnInit {
 
     ngOnInit() {
         console.log(this.service.getter())
-        this.serviceConta.criaConta(this.service.getter().idCliente).subscribe((result)=>{
-            this.serviceConta.setConta(result)
-            this.conta = this.serviceConta.getConta()
-            this.clienteGeral = this.service.getter()
-        }, (erro)=> console.log(erro)) 
+        this.serviceConta.criaConta(this.service.getter().idCliente).subscribe((result) => {
+            this.serviceConta.setConta(result);
+            this.conta = this.serviceConta.getConta();
+            this.clienteGeral = this.service.getter();
+        }, (erro) => console.log(erro)) 
         
     }
 

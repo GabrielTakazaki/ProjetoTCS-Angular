@@ -3,25 +3,31 @@
         <div class="col-12">
             <p class="text-center alert alert-danger" id="mensagem" [ngClass]="{'class': true}" *ngIf="msg != null">{{msg}}</p>
                 <h1>Transferencia </h1>
-            <form class="mt-5" (ngSubmit)="entrar()" style="margin-left: 50px;">
+            <form class="mt-5" (ngSubmit)="transferir()" style="margin-left: 50px;">
                 
                 <div class="form-conta">
-                    <input type="number" class="form-control Transferencia" maxlength="14" name="contaCliente" placeholder="Conta" [(ngModel)]="cliente.contaCliente">
+                    <input type="number" class="form-control Transferencia" maxlength="14" name="contaCliente" placeholder="Conta" [(ngModel)]="transf.idCreditoDTO">
                 </div>
                 <div class="form-valor">
-                    <input type="value" class="form-control Transferencia" name="calorCliente"  placeholder="Valor" [(ngModel)]="Valor.contaCliente">
+                    <input type="value" class="form-control Transferencia" name="calorCliente"  placeholder="Valor" [(ngModel)]="transf.valorTransferenciaDTO">
                 </div>
                 <button type="submit" class="btn btn-login btn-info">Transferir</button> 
                 
             </form>
         </div>
         
-        <div id="label1" border="1">
+        <div id="label1">
             <h3>creditado</h3>
+            <ul>
+                <li *ngFor="let traf of transList"> <p *ngIf="traf.idCreditoDTO == contaAtual.numConta">Número da Conta: {{traf.idDebitoDTO}} / Valor transferido: {{traf.valorTransferenciaDTO}}</p><li>
+            </ul>
         </div>
 
-        <div id="label2" border="1">
+        <div id="label2">
             <h3>debitado</h3>
+            <ul>
+                <li *ngFor="let traf of transList"><p *ngIf="traf.idDebitoDTO == contaAtual.numConta">Número da Conta: {{traf.idCreditoDTO}} / Valor transferido: {{traf.valorTransferenciaDTO}}</p></li>
+            </ul>
         </div>       
     </div>
 </div>
