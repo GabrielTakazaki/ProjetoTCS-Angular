@@ -10,7 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormClienteComponent } from './form-cliente/form-cliente.component';
 import { HttpClient } from 'selenium-webdriver/http';
 import { FormsModule } from "@angular/forms"
-import { ClienteServiceService } from './service/cliente-service.service';
+import { ClienteServiceService } from './cliente-service.service';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TransferenciaComponent } from './transferencia/transferencia.component';
@@ -18,6 +18,7 @@ import { InvestimentoComponent } from './investimento/investimento.component';
 import {NgxMaskModule, IConfig} from 'ngx-mask';
 import { ClienteComponent } from './cliente/cliente.component';
 import { CreditoComponent } from './credito/credito.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -28,8 +29,9 @@ const appRoutes:Routes=[
     {path:'login',component: LoginComponent},
     {path:'investimento', component: InvestimentoComponent},
     {path:'cliente', component: ClienteComponent},
-    {path:'transferencia', component: TransferenciaComponent},
     {path:'credito', component: CreditoComponent},
+    {path:'perfil', component: PerfilComponent},
+    {path:'transferencia', component:TransferenciaComponent}
 ];
 
 
@@ -44,7 +46,8 @@ const appRoutes:Routes=[
     TransferenciaComponent,
     InvestimentoComponent,
     ClienteComponent,
-    CreditoComponent
+    CreditoComponent,
+    PerfilComponent
     
   ],
   imports: [
