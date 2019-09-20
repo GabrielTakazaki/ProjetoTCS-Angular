@@ -27,4 +27,21 @@ export class ClienteComponent implements OnInit {
         
     }
 
+    chamaInv(){
+        this.router.navigate(['/investimento'])
+    }
+
+    chamaTran(){
+        this.router.navigate(['/transferencia'])
+    }
+
+    chamaSal(){
+        this.router.navigate([''])
+    }
+
+    chamaEmpr(){
+        this.router.navigate([''])
+    }
+    
+
 }
