@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ContaServiceService } from '../conta-service.service';
+import { TransfServService } from './transf-serv.service';
 
-describe('ContaServiceService', () => {
+describe('TransfServService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ContaServiceService = TestBed.get(ContaServiceService);
+    const service: TransfServService = TestBed.get(TransfServService);
     expect(service).toBeTruthy();
   });
 });
