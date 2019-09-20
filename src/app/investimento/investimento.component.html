@@ -76,7 +76,7 @@
     
     <div>
       <li *ngFor = "let lista of listInvest">
-        {{lista.saldo}}
+        {{lista.saldo}} <button class="btn btn-info" (click)="devolverDinheiro(lista)">Retirar investimento</button>
       </li>
     </div>
 </div>

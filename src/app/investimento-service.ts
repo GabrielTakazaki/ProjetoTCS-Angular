@@ -30,4 +30,10 @@ export class InvestimentoService {
         const param = { params: this.options }
         return this.http.get<Investimento[]>(baseUrl + "/investimento/contaInvestimento", param)
     }
+
+    retornaInv(investimento: Investimento) {
+        return this.http.put(baseUrl + "/investimento/devolveDinheiro", JSON.stringify(investimento),
+        {headers:{'Content-Type':'application/json'}})
+    }
+    
 }
