@@ -25,13 +25,13 @@ export class LoginComponent implements OnInit {
     }
 
     entrar() {
-        if (this.cliente.cpfCliente != null && this.cliente.password != null) {
+        if (this.cliente.cpfCliente != "" && this.cliente.password != "") {
             this.service.verificaClient(this.cliente).subscribe((cliente) => {
                 //sessionStorage.setItem('token',btoa(this.cliente.cpfCliente+':'+this.cliente.password))
                 this.logado = cliente;
-
+                this.preencheUsuario();
             });
-            this.preencheUsuario(this.logado);
+            
         }
         else { 
             this.msg = "Por favor informe o CPF e a senha"
@@ -41,8 +41,8 @@ export class LoginComponent implements OnInit {
             this.msg = null;
         }, 5000);
     }
-    preencheUsuario(logado:boolean):any{
-        if (logado) {
+    preencheUsuario(){
+        if (this.logado) {
             alert("Logado com sucesso")
             this.service.buscarCpf(this.cliente.cpfCliente).subscribe((result) => {
                 this.service.setter(result)
