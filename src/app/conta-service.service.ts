@@ -31,4 +31,8 @@ export class ContaServiceService {
         const param = { params: this.opt }
         return this.http.get<Conta>(baseUrl + '/contaAdd/',param)
     }
+
+    listAll(){
+        return this.http.get<Conta[]>(baseUrl + '/listaContas/')
+    }
 }
