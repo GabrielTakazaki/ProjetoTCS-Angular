@@ -28,6 +28,7 @@ const appRoutes:Routes=[
     {path:'login',component: LoginComponent},
     {path:'investimento', component: InvestimentoComponent},
     {path:'cliente', component: ClienteComponent},
+    {path:'Transferencia', component: TransferenciaComponent},
     {path:'perfil', component: PerfilComponent}
 ];
 
