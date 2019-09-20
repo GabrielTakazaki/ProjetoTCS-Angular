@@ -27,4 +27,8 @@ export class ClienteComponent implements OnInit {
         
     }
 
+    chamaInv(){
+        this.router.navigate(['/investimento'])
+    }
+
 }
