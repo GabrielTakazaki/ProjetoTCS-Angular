@@ -89,7 +89,7 @@
     
   </tr>
   <tr>
-    <td><li *ngFor = "let lista of listInvest">{{lista.nomeInvestimento}}: R${{lista.saldo}} <br><button class="btn btn-info" (click)="devolverDinheiro(lista)">Retirar investimento</button>
+    <td><li *ngFor = "let lista of listInvest">{{lista.nomeInvestimento}}: R${{lista.saldo | number:'3.1-2'}}  <br><button class="btn btn-info" (click)="devolverDinheiro(lista)">Retirar investimento</button>
     </li>
     </td>
     

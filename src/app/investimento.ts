@@ -2,8 +2,7 @@ import { Conta } from './conta';
 
 export class Investimento {
     idInvestimento: Number;
-    conta:Conta;
+    conta:Number;
     nomeInvestimento:String;
     saldo:Number;
-    dtInicio:Date;
 }

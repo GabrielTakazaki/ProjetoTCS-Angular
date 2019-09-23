@@ -23,15 +23,14 @@ export class ClienteComponent implements OnInit {
                 this.service.buscarFixed().subscribe((result)=>{
                 this.service.setter(result)
                 Controladora.loginSetado = true     
-                Controladora.existeCliente = true   
-            }, (erro)=>{
-                Controladora.existeCliente = false
+                Controladora.existeCliente = true 
             })
         }
-        if (!Controladora.existeCliente) {
-            this.router.navigate(['/login'])
-        }
+
         setTimeout(() => {
+            if (Controladora.existeCliente == false) {
+                this.router.navigate(['/login'])
+            }
             this.serviceConta.criaConta(this.service.getter().idCliente).subscribe((result)=>{
             this.serviceConta.setConta(result)
             this.conta = this.serviceConta.getConta()
