@@ -15,6 +15,7 @@ export class FormClienteComponent implements OnInit {
     private verificaPassword;
     private msg: String;
     private CPF: String;
+    private listError:[]
     constructor(private router: Router, private service: ClienteServiceService) { }
 
     ngOnInit() {
@@ -29,7 +30,10 @@ export class FormClienteComponent implements OnInit {
                     alert("Cadastrado com Sucesso")
                     this.router.navigate(['login'])                   
                 }, (error: HttpErrorResponse) => {
-                    this.msg = error.error.text;                 
+                    this.listError = error.error
+                    this.listError.forEach(e=>{
+                        alert(e.erro)
+                    })         
                 });
             }
             else {
