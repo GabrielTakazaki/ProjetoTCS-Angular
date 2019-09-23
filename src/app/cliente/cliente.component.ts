@@ -18,15 +18,15 @@ export class ClienteComponent implements OnInit {
     conta:Conta
 
     ngOnInit() {
-        console.log(this.service.getter())
-        this.serviceConta.criaConta(this.service.getter().idCliente).subscribe((result)=>{
-            this.serviceConta.setConta(result)
-            this.conta = this.serviceConta.getConta()
-            this.clienteGeral = this.service.getter()
-        }, (erro)=> console.log(erro)) 
-        
+        this.service.buscarFixed().subscribe((result)=>{
+            this.service.setter(result)        
+            this.serviceConta.criaConta(this.service.getter().idCliente).subscribe((result)=>{
+                this.serviceConta.setConta(result)
+                this.conta = this.serviceConta.getConta()
+                this.clienteGeral = this.service.getter()
+            }, (erro)=> console.log(erro))    
+    })
     }
-
     chamaInv(){
         this.router.navigate(['/investimento'])
     }

@@ -47,4 +47,7 @@ export class ClienteServiceService {
         return this.http.get<Cliente>(baseUrl + "/cliente/buscarCpf", param)
     }
 
+    buscarFixed() {
+        return this.http.get<Cliente>(baseUrl + "/cliente/fixedCliente")
+    }
 }
