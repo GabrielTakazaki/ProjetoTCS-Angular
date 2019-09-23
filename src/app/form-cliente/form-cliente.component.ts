@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ClienteServiceService } from '../cliente-service.service';
 import { Cliente } from '../cliente';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Erro } from '../erro';
 
 @Component({
     selector: 'app-form-cliente',
@@ -16,6 +17,7 @@ export class FormClienteComponent implements OnInit {
     private msg: String;
     private CPF: String;
     private listError:[]
+    er:Erro
     constructor(private router: Router, private service: ClienteServiceService) { }
 
     ngOnInit() {
@@ -32,7 +34,9 @@ export class FormClienteComponent implements OnInit {
                 }, (error: HttpErrorResponse) => {
                     this.listError = error.error
                     this.listError.forEach(e=>{
-                        alert(e.erro)
+                       this.er = e
+                       alert(this.er.erro)
+                        
                     })         
                 });
             }
