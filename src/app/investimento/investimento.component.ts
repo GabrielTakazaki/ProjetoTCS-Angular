@@ -12,6 +12,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class InvestimentoComponent implements OnInit {
     private investimento: Investimento;
+
+    private ipca: Number;
+    private poupanca: Number;
+    private cdi:Number;
+
     private msg: String
     private listInvest: Investimento[];
     constructor(private router: Router, private serviceInv: InvestimentoService, private serviceConta: ContaServiceService) { }
@@ -19,7 +24,6 @@ export class InvestimentoComponent implements OnInit {
     ngOnInit() {
         if (this.serviceConta.getConta() === undefined) {
             this.investimento = new Investimento();
-            console.log('ggggggggg')
         }
 
         else {
@@ -35,7 +39,8 @@ export class InvestimentoComponent implements OnInit {
 
 
 
-    criarInvestimento(tipo: String) {
+    criarInvestimento(tipo: String, valor:Number) {
+        this.investimento.saldo=valor;
         this.investimento.conta = this.serviceConta.getConta();
         this.investimento.nomeInvestimento = tipo;
 

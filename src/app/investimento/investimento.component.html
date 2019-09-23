@@ -3,7 +3,7 @@
     <div class=" card text-white bg-info mb-3 left"> 
         <h3>Poupança</h3>
         
-        <form (ngSubmit) = "criarInvestimento('Poupanca')">
+        <form (ngSubmit) = "criarInvestimento('Poupanca',poupanca)">
             
             <label>Quanto você quer investir &nbsp;</label>
            
@@ -11,7 +11,7 @@
                     <div class="input-group-prepend" >
                       <span class="input-group-text">R$</span>
                     </div>
-                    <input type="number" class="form-control" name="investimento.saldo" [(ngModel)]="investimento.saldo">
+                    <input type="number" class="form-control" name="poupanca" [(ngModel)]="poupanca">
                     <div class="input-group-append">
                       <span class="input-group-text ">&nbsp;&nbsp;</span>
              
@@ -22,20 +22,20 @@
                   <input type="date" name="" value="Até quando" id="">
                   <br>
             <input type="submit" name="" id="" value="Simular" class="btn btn-success"> &nbsp;
-            <input type="submit" name="" (click)="criarInvestimento()" id="" value="Investir" class="btn btn-light" style="width: 120px;">
+            <input type="submit" id="" value="Investir" class="btn btn-light" style="width: 120px;">
         </form>
     </div>
     <div class="card text-white bg-info mb-3 left">
         <h3>CDI</h3>
 
-        <form action="">
+        <form (ngSubmit) = "criarInvestimento('cdi',cdi)">
                 <label>Quanto você quer investir &nbsp;</label>
                 
                 <div class="input-group mb-3">
                         <div class="input-group-prepend" >
                           <span class="input-group-text">R$</span>
                         </div>
-                        <input type="number" class="form-control" >
+                        <input type="number" class="form-control" name="cdi" [(ngModel)]="cdi">
                         <div class="input-group-append">
                           <span class="input-group-text " >&nbsp;&nbsp;</span>
                  
@@ -51,14 +51,14 @@
     </div>
     <div class="card text-white bg-info mb-3 left">
         <h3>IPCA</h3>
-        <form action="">
+        <form (ngSubmit) = "criarInvestimento('ipca',ipca)">
                 <label>Quanto você quer investir &nbsp;</label>
                 
                 <div class="input-group mb-3">
                         <div class="input-group-prepend" >
                           <span class="input-group-text">R$</span>
                         </div>
-                        <input type="number" class="form-control" >
+                        <input type="number" class="form-control" name="ipca" [(ngModel)]="ipca">
                         <div class="input-group-append">
                           <span class="input-group-text " > &nbsp;&nbsp;</span>
                  
