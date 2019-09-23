@@ -29,8 +29,8 @@ export class TransferenciaComponent implements OnInit {
                 this.transList.push(item)
             })
             console.log(this.transList)
-        })
-        this.contaAtual = this.serviceConta.getConta()
+        })      
+        this.contaAtual = this.serviceConta.getConta()  
     }
 
     transferir(){
@@ -41,7 +41,7 @@ export class TransferenciaComponent implements OnInit {
             }
         })
     }
-
+  
     validaConta() {
         this.contas.forEach((value)=>{
             if (value.numConta == this.transf.idCreditoDTO) {
@@ -62,5 +62,5 @@ export class TransferenciaComponent implements OnInit {
             this.transList.push(result)
         })
     }
-
-}
+    
+    }
