@@ -25,9 +25,9 @@ export class FormClienteComponent implements OnInit {
     addCliente() {
         if (this.cpf(this.cliente.cpfCliente.toString())) {   
             if (this.cliente.password === this.verificaPassword) {
-                console.log(this.cliente)
                 this.service.createClient(this.cliente).subscribe((cliente) => {
-                    console.log(cliente)
+                    alert("Cadastrado com Sucesso")
+                    this.router.navigate(['login'])                   
                 }, (error: HttpErrorResponse) => {
                     this.msg = error.error.text;                 
                 });
