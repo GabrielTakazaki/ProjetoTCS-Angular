@@ -4,6 +4,7 @@ import { Conta } from '../conta';
 import { ContaServiceService } from '../conta-service.service';
 import { Router } from '@angular/router';
 import { Cliente } from '../cliente';
+import { Controladora } from '../controladora';
 
 @Component({
     selector: 'app-cliente',
@@ -18,15 +19,26 @@ export class ClienteComponent implements OnInit {
     conta:Conta
 
     ngOnInit() {
-        this.service.buscarFixed().subscribe((result)=>{
-            this.service.setter(result)        
+        if(Controladora.loginSetado == false){
+                this.service.buscarFixed().subscribe((result)=>{
+                this.service.setter(result)
+                Controladora.loginSetado = true     
+                Controladora.existeCliente = true   
+            }, (erro)=>{
+                Controladora.existeCliente = false
+            })
+        }
+        if (!Controladora.existeCliente) {
+            this.router.navigate(['/login'])
+        }
+        setTimeout(() => {
             this.serviceConta.criaConta(this.service.getter().idCliente).subscribe((result)=>{
-                this.serviceConta.setConta(result)
-                this.conta = this.serviceConta.getConta()
-                this.clienteGeral = this.service.getter()
-            }, (erro)=> console.log(erro))    
-    })
-    }
+            this.serviceConta.setConta(result)
+            this.conta = this.serviceConta.getConta()
+            this.clienteGeral = this.service.getter()
+            }, (erro)=> console.log(erro))        
+        }, 1);
+        }
     chamaInv(){
         this.router.navigate(['/investimento'])
     }

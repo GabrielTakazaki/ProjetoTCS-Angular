@@ -3,6 +3,7 @@ import * as Inputmask from "inputmask";
 import { Cliente } from '../cliente';
 import { Router } from '@angular/router';
 import { ClienteServiceService } from '../cliente-service.service';
+import { Controladora } from '../controladora';
 
 @Component({
     selector: 'app-login',
@@ -46,6 +47,7 @@ export class LoginComponent implements OnInit {
             alert("Logado com sucesso")
             this.service.buscarCpf(this.cliente.cpfCliente).subscribe((result) => {
                 this.service.setter(result)
+                Controladora.existeCliente = true
                 this.router.navigate(['cliente'])
             })
 

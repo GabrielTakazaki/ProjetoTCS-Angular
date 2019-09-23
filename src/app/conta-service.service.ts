@@ -25,12 +25,7 @@ export class ContaServiceService {
     }
 
     criaConta(id:Number) {
-        
-        console.log(this.service.getter().idCliente)
-        this.opt = new HttpParams()
-        this.opt = this.opt.append('id',id.toString())
-        const param = { params: this.opt }
-        return this.http.get<Conta>(baseUrl + '/contaAdd/',param)
+        return this.http.get<Conta>(baseUrl + '/contaAdd')
     }
 
     listAll(){
