@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 0px">
+<div class="container" style="margin-top: 0px; margin-left: 14%;">
      
   <div class="voltar" >
       <button class="btn btn-outline-dark" routerLink="/cliente"> Voltar a conta</button>
@@ -61,8 +61,7 @@
                         <input type="number" class="form-control" name="ipca" [(ngModel)]="ipca">
                         <div class="input-group-append">
                           <span class="input-group-text " > &nbsp;&nbsp;</span>
-                 
-                          
+  
                         </div>
                         
                       </div>
@@ -71,29 +70,19 @@
             </form>
     </div>
     <div class="clear"></div>
-    
-    
+   
 </div>
 
-<!--
-<div class="container">
-  <li *ngFor = "let lista of listInvest">
-    {{lista.saldo}} <button class="btn btn-info" (click)="devolverDinheiro(lista)">Retirar investimento</button>
-  </li>
-</div>
--->
-<table style="width:80%">
+<div class="card text-white bg-info mb-3" style="max-width: 100rem;">
+    <div class="card-header"><h1>Investimentos</h1></div>
+    <div class="card-body">
 
-  <tr>
-    <th>Investimeto</th>
-    
-  </tr>
-  <tr>
-    <td><li *ngFor = "let lista of listInvest">{{lista.nomeInvestimento}}: R${{lista.saldo | number:'3.1-2'}}  <br><button class="btn btn-info" (click)="devolverDinheiro(lista)">Retirar investimento</button>
-    </li>
-    </td>
-    
-  </tr>
+        <table style="width:80%">
  
-</table>
+              <td><li *ngFor = "let lista of listInvest">{{lista.nomeInvestimento}}: R${{lista.saldo | number:'3.1-2'}}   <br><button class="btn btn-light" (click)="devolverDinheiro(lista)">Retirar investimento</button></li>
+              </td>
+   
+          </table>
+    </div>
+  </div>
 

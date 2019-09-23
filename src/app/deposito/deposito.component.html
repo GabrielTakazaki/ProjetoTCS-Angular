@@ -2,14 +2,18 @@
         <div class="voltar" >
                <button class="btn btn-outline-dark" routerLink="/cliente"> Voltar a conta</button>
               </div>    
-<h2>Faça um depósito em sua conta corrente</h2>
 
 
+<div class="card text-white bg-info mb-3" style="max-width: 72rem;">
+        <div class="card-header" style="text-align: center"><h1>Faça um depósito em sua conta corrente</h1></div>
+        <div class="card-body">
 
+                
 
-    <form (ngSubmit) = "DepositarValor()" class="valor1">
-        <input class="form-control form-control-sm valor" type="number" value="Depositar" name="Deposito" [(ngModel)]="deposito.valorDeposito">
-        <input class="enviar btn btn-outline-success" type="submit" value="Novo Depósito">
-    </form>
-
-</div>
+                <form (ngSubmit) = "DepositarValor()" class="valor1">
+                    <input class="form-control form-control-sm valor" placeholder="Valor R$" type="number" value="Depositar" name="Deposito" [(ngModel)]="deposito.valorDeposito">
+                    <input class="btn btn-light" style="width: 21%; margin-top: 13px; margin-left: 39%;" type="submit" value="Novo Depósito">
+                </form>
+            
+            </div>
+      </div>

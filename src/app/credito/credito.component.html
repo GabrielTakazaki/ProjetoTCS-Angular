@@ -1,21 +1,30 @@
 <div class="container">
-        <div class="voltar" >
-                <button class="btn btn-outline-dark" routerLink="/cliente"> Voltar a conta</button>
-            </div>
-    <div class="row box-login">
-        <div class="col-12">
-            <p *ngIf="msg != null">{{msg}}</p>
-            <p class="text-center alert alert-danger" id="mensagem" [ngClass]="{'class': true}" *ngIf="msg != null">{{msg}}</p>
-                <h1>Emprestimo</h1>
-            <form class="mt-5" (ngSubmit)="entrar()" style="margin-left: 50px;">               
-                <div class="form-valor">
-                    <input type="value" class="form-control Transferencia" name="calorCliente" style="margin-left: 290px" placeholder="Valor" [(ngModel)]="credito.valorSaldo">
-                </div>       
-            </form>
-        </div>     
+    <div class="voltar">
+        <button class="btn btn-outline-dark" routerLink="/cliente"> Voltar a conta</button>
     </div>
-    <div>
-        <button type="submit" (click)="queroDinheiro()" class="btn btn-login btn-info">Solicitar Emprestimo</button>
+
+    <div class="card text-white bg-info mb-3" style="max-width: 72rem;">
+        <div class="card-header" style="text-align: center">
+            <h1>Solicite um Emprestimo</h1>
+        </div>
+        <div class="card-body" style="padding: 10px;">
+
+            <p *ngIf="msg != null">{{msg}}</p>
+            <p class="text-center alert alert-danger" id="mensagem" [ngClass]="{'class': true}" *ngIf="msg != null">
+                {{msg}}</p>
+
+            <form (ngSubmit)="entrar()" class="mt-5">
+                <div class="form-valor">
+                    <input class="form-control form-control-sm valor" style="width: 35%; margin-left: 351px;" placeholder="Valor R$"
+                        type="number" value="Depositar" name="Deposito" [(ngModel)]="credito.valorSaldo">
+
+                </div>
+            </form>
+            <div>
+                <button type="submit" (click)="queroDinheiro()" class="btn btn-light"
+                    style="width: 21%; margin-top: 13px; margin-left: 39%;">Solicitar Emprestimo</button>
+            </div>
+        </div>
+
     </div>
 </div>
-
