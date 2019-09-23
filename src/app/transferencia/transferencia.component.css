@@ -60,3 +60,36 @@ h3{
   padding: 225px;
   border-radius: 10px;
 }
+.creditado{
+  
+  width: 30%;
+  border: 2px solid red;
+  text-align: center;
+}
+
+.debitado{
+  margin: auto;
+  width: 30%;
+  border: 2px solid blue;
+  text-align: center;
+}
+
+.extrato li{
+  list-style: none;
+}
+
+table, th, td {
+  text-align: center;
+  border: 1px solid black;
+  list-style: none;
+  margin-left: 10%;
+}
+th, td {
+  text-align: center;
+  padding: 30px;
+
+}
+th {
+  text-align: center;
+  margin: auto;
+}
