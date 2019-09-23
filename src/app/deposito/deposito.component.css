@@ -1,0 +1,26 @@
+h2{
+    text-align: center;
+    margin: 25px 20px;
+}
+
+.deposito{
+    width: 50%;
+} 
+
+.enviar{
+    width: 20%;
+    margin-top: 10px;
+    margin-left: 35%;
+
+}
+
+.valor{
+    width: 35%;
+    margin: auto;
+}
+
+.voltar{
+    margin: 10px;
+    text-align: right;
+}
+

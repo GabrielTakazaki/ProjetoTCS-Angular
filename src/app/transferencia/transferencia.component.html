@@ -1,5 +1,10 @@
 
 <div class="container">
+
+        <div class="voltar" >
+                <button class="btn btn-outline-dark" routerLink="/cliente"> Voltar a conta</button>
+            </div>
+            
     <div class="row box-login">
         <div class="col-12">
             <p class="text-center alert alert-danger" id="mensagem" [ngClass]="{'class': true}" *ngIf="msg != null">{{msg}}</p>
@@ -46,9 +51,9 @@
     <th>Debitado</th>
   </tr>
   <tr>
-    <td><li *ngFor="let traf of transList"> <p *ngIf="traf.idCreditoDTO == contaAtual.numConta">Número da Conta: {{traf.idDebitoDTO}} / Valor transferido: {{traf.valorTransferenciaDTO}}</p><li>
+    <td><li *ngFor="let traf of transList"> <p *ngIf="traf.idCreditoDTO == contaAtual.numConta">Número da Conta: {{traf.idDebitoDTO}} <br> Valor transferido: {{traf.valorTransferenciaDTO}}</p><li>
     </td>
-    <td><li *ngFor="let traf of transList"><p *ngIf="traf.idDebitoDTO == contaAtual.numConta">Número da Conta: {{traf.idCreditoDTO}} / Valor transferido: {{traf.valorTransferenciaDTO}}</p></li>
+    <td><li *ngFor="let traf of transList"><p *ngIf="traf.idDebitoDTO == contaAtual.numConta">Número da Conta: {{traf.idCreditoDTO}} <br> Valor transferido: {{traf.valorTransferenciaDTO}}</p></li>
     </td>
   </tr>
  

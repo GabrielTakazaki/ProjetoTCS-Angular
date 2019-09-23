@@ -50,13 +50,35 @@
     border: 1px solid rgba(0, 0, 0, .6);
 }
 
+.voltar{
+    margin: 10px;
+    text-align: right;
+}
+
 .container{
-    margin: 50px;
+
     margin-left:10%; 
-    margin-bottom: 11%;
+   
     overflow:hidden;
 }
 
 .card{
     padding: 7px 5px;
 }
+
+table, th, td {
+    text-align: center;
+    border: 1px solid black;
+    list-style: none;
+    margin-left: 10%;
+  }
+  th, td {
+    text-align: center;
+    padding: 30px;
+  
+  }
+  th {
+    text-align: center;
+    margin: auto;
+  }
+  

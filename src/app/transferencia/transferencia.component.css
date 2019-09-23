@@ -92,4 +92,11 @@ th, td {
 th {
   text-align: center;
   margin: auto;
+  color: #17a2b8;
 }
+.voltar{
+    margin: 10px;
+    text-align: right;
+}
+
+

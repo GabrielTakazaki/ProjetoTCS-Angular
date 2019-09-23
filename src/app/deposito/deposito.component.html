@@ -1,4 +1,15 @@
-<form (ngSubmit) = "DepositarValor()">
-    <input type="number" value="Depositar" name="Deposito" [(ngModel)]="deposito.valorDeposito">
-    <input type="submit" value="Novo Depósito">
-</form>
+<div class="container">
+        <div class="voltar" >
+               <button class="btn btn-outline-dark" routerLink="/cliente"> Voltar a conta</button>
+              </div>    
+<h2>Faça um depósito em sua conta corrente</h2>
+
+
+
+
+    <form (ngSubmit) = "DepositarValor()" class="valor1">
+        <input class="form-control form-control-sm valor" type="number" value="Depositar" name="Deposito" [(ngModel)]="deposito.valorDeposito">
+        <input class="enviar btn btn-outline-success" type="submit" value="Novo Depósito">
+    </form>
+
+</div>
