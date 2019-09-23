@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="row box-login">
         <div class="col-12">
@@ -14,8 +15,9 @@
                 <button type="submit" class="btn btn-login btn-info">Transferir</button> 
                 
             </form>
-        </div>
         
+        </div>
+         <!--   
         <div id="label1">
             <h3>creditado</h3>
             <ul>
@@ -28,6 +30,26 @@
             <ul>
                 <li *ngFor="let traf of transList"><p *ngIf="traf.idDebitoDTO == contaAtual.numConta">Número da Conta: {{traf.idCreditoDTO}} / Valor transferido: {{traf.valorTransferenciaDTO}}</p></li>
             </ul>
-        </div>       
+        </div>      
+        --> 
     </div>
 </div>
+
+
+
+
+
+      <table style="width:80%">
+
+  <tr>
+    <th>Creditado</th>
+    <th>Debitado</th>
+  </tr>
+  <tr>
+    <td><li *ngFor="let traf of transList"> <p *ngIf="traf.idCreditoDTO == contaAtual.numConta">Número da Conta: {{traf.idDebitoDTO}} / Valor transferido: {{traf.valorTransferenciaDTO}}</p><li>
+    </td>
+    <td><li *ngFor="let traf of transList"><p *ngIf="traf.idDebitoDTO == contaAtual.numConta">Número da Conta: {{traf.idCreditoDTO}} / Valor transferido: {{traf.valorTransferenciaDTO}}</p></li>
+    </td>
+  </tr>
+ 
+</table>
