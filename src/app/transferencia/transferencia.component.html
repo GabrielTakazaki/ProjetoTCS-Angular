@@ -4,7 +4,7 @@
         <button class="btn btn-outline-dark" routerLink="/cliente"> Voltar a conta</button>
     </div>
 
-    <div class="row box-login">
+    <div class="row box-login" >
         <div class="col-12">
             <p class="text-center alert alert-danger" id="mensagem" [ngClass]="{'class': true}" *ngIf="msg != null">
                 {{msg}}</p>
@@ -12,29 +12,27 @@
             <form class="mt-5" (ngSubmit)="transferir()" style="margin-left: 50px;">
 
                 <div class="form-conta">
+                       
                     <input type="number" class="form-control Transferencia" maxlength="14" name="contaCliente"
                         placeholder="Conta" [(ngModel)]="transf.idCreditoDTO">
+                        
                 </div>
+                
                 <div class="form-valor">
                     <input type="value" class="form-control Transferencia" name="calorCliente" placeholder="Valor"
                         [(ngModel)]="transf.valorTransferenciaDTO">
+                        
                 </div>
                 <button type="submit" class="btn btn-login btn-info">Transferir</button>
 
             </form>
-
+            
         </div>
 
     </div>
 
 
-    <div class="row" style=    "display: flex;
-    flex-wrap: wrap;
-    margin-right: -50px;
-    align-items: center;
-    margin-left: 246px;
-    align-items: center;
-    margin-top: -4%;">
+    <div class="row" style="margin-left: 246px;">
     
         
             <div class="card text-white bg-info mb-3" style="margin-left: -13%; width: 43%;">

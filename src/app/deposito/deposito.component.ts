@@ -3,6 +3,7 @@ import { ContaServiceService } from '../conta-service.service';
 import { Router } from '@angular/router';
 import { Deposito } from '../deposito';
 
+
 @Component({
     selector: 'app-deposito',
     templateUrl: './deposito.component.html',
@@ -21,8 +22,10 @@ export class DepositoComponent implements OnInit {
     DepositarValor(){
         this.service.depositar(this.deposito).subscribe((result)=>{
             console.log(result)
+            alert('Realizado deposito')     
         }, (erro)=> { console.log(erro) })
     }
 
+   
 
 }

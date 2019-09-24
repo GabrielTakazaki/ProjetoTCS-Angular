@@ -54,26 +54,27 @@ export class InvestimentoComponent implements OnInit {
         })
         
     }
-
-    devolverDinheiro(investimento:Investimento){
-        this.serviceInv.retornaInv(investimento).subscribe((result)=>{
-            console.log(result)
-           
-        }, (erro)=> {
-            console.log(erro)
-        })
-    }
     async chamaInv(){
         setTimeout(() => {
             this.investimento = new Investimento();
             this.serviceInv.listInvestimento(this.serviceConta.getConta().numConta).subscribe((result) => {
                 this.listInvest = result;
-
+        console.log(this.listInvest)
                 
             }, (error: HttpErrorResponse) => {
             });
         }, 1);
     }
+
+    devolverDinheiro(investimento:Investimento){
+        this.serviceInv.retornaInv(investimento).subscribe((result)=>{
+            console.log(result)
+           
+        }, (erro:HttpErrorResponse)=> {
+            console.log(erro.error)
+        })
+    }
+    
     invest(){
         alert('Investimento realizado')
     }
