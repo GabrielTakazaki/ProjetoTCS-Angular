@@ -46,7 +46,7 @@
                       </div>
                       
                       
-                        <input type="submit" name="" id="" value="Investir" class="btn btn-light" style="width: 120px;">
+                        <input type="submit" name="" id="" value="Investir" class="btn btn-light"  style="width: 120px;">
             </form>
     </div>
     <div class="card text-white bg-info mb-3 left">
@@ -68,13 +68,16 @@
                      
                         <input type="submit" name="" id="" value="Investir" class="btn btn-light" style="width: 120px;">
             </form>
+            
     </div>
+    
     <div class="clear"></div>
    
 </div>
 
 <div class="card text-white bg-info mb-3" style="max-width: 100rem;">
     <div class="card-header"><h1>Investimentos</h1></div>
+    <div class="atualiza"><button (click)='chamaInv()' >Atualiza</button></div>
     <div class="card-body">
 
         <table style="width:80%">
@@ -82,7 +85,9 @@
               <td><li *ngFor = "let lista of listInvest">{{lista.nomeInvestimento}}: R${{lista.saldo | number:'3.1-2'}}   <br><button class="btn btn-light" (click)="devolverDinheiro(lista)">Retirar investimento</button></li>
               </td>
    
+              
           </table>
+          
     </div>
   </div>
 
