@@ -20,6 +20,7 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { CreditoComponent } from './credito/credito.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { DepositoComponent } from './deposito/deposito.component';
+import { NavLoguinComponent } from './nav-loguin/nav-loguin.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -50,7 +51,8 @@ const appRoutes:Routes=[
     ClienteComponent,
     CreditoComponent,
     PerfilComponent,
-    DepositoComponent
+    DepositoComponent,
+    NavLoguinComponent
     
   ],
   imports: [

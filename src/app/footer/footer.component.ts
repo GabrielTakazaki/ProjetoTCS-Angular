@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ClienteServiceService } from '../cliente-service.service';
+import { ContaServiceService } from '../conta-service.service';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+    selector: 'app-footer',
+    templateUrl: './footer.component.html',
+    styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+    constructor(private router: Router, private serviceCliente: ClienteServiceService, private serviceConta: ContaServiceService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.serviceCliente.setter(JSON.parse(localStorage.getItem("cliente")))
+    }
 
 }

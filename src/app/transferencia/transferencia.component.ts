@@ -4,6 +4,7 @@ import { TransfServService } from '../transf-serv.service';
 import { Router } from '@angular/router';
 import { ContaServiceService } from '../conta-service.service';
 import { Conta } from '../conta';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
     selector: 'app-transferencia',
@@ -22,15 +23,15 @@ export class TransferenciaComponent implements OnInit {
     constructor(private serviceTrans:TransfServService,private router: Router, private serviceConta:ContaServiceService) { }
     
     ngOnInit() {
+        this.serviceConta.setConta(JSON.parse(localStorage.getItem("conta")))
         this.transf = new Transferencia()
         this.transList = new Array<Transferencia>();
         this.serviceTrans.listTransf().subscribe((result)=>{
             result.forEach((item)=>{
                 this.transList.push(item)
             })
-            console.log(this.transList)
-        })      
-        this.contaAtual = this.serviceConta.getConta()  
+        })
+        this.contaAtual = JSON.parse(localStorage.getItem("conta"))  
     }
 
     transferir(){
@@ -58,7 +59,7 @@ export class TransferenciaComponent implements OnInit {
     }
 
     fazTransferencia() {
-        this.transf.idDebitoDTO = this.serviceConta.getConta().numConta
+        this.transf.idDebitoDTO = this.contaAtual.numConta
         this.serviceTrans.createTransf(this.transf).subscribe((result)=>{
             this.transList.push(result)
             this.tranferiu()

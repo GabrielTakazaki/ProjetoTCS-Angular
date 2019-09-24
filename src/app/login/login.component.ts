@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
     constructor(private router: Router, private service: ClienteServiceService) { }
     private msg: String
     ngOnInit() {
-      //  sessionStorage.setItem('token','')
         Inputmask().mask(document.querySelectorAll("input"))
         this.cliente = new Cliente();
     }
@@ -28,7 +27,6 @@ export class LoginComponent implements OnInit {
     entrar() {
         if (this.cliente.cpfCliente != "" && this.cliente.password != "") {
             this.service.verificaClient(this.cliente).subscribe((cliente) => {
-                //sessionStorage.setItem('token',btoa(this.cliente.cpfCliente+':'+this.cliente.password))
                 this.logado = cliente;
                 this.preencheUsuario();
             });
@@ -46,6 +44,7 @@ export class LoginComponent implements OnInit {
         if (this.logado) {
             alert("Logado com sucesso")
             this.service.buscarCpf(this.cliente.cpfCliente).subscribe((result) => {
+                localStorage.setItem('cliente',JSON.stringify(result));
                 this.service.setter(result)
                 Controladora.existeCliente = true
                 this.router.navigate(['cliente'])

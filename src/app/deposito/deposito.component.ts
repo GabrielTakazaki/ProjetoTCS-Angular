@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContaServiceService } from '../conta-service.service';
 import { Router } from '@angular/router';
 import { Deposito } from '../deposito';
+import { Conta } from '../conta';
 
 
 @Component({
@@ -11,21 +12,21 @@ import { Deposito } from '../deposito';
 })
 export class DepositoComponent implements OnInit {
 
+    conta:Conta
     deposito:Deposito
     constructor(private service: ContaServiceService, private router: Router) { }
-
+    
+    
     ngOnInit() {
         this.deposito = new Deposito()
-        this.deposito.idConta = this.service.getConta().numConta
+        this.conta = this.service.getConta()
+        this.deposito.idConta = this.conta.numConta
+        
     }
 
     DepositarValor(){
         this.service.depositar(this.deposito).subscribe((result)=>{
-            console.log(result)
-            alert('Realizado deposito')     
+            alert("Depósito realizado com sucesso")
         }, (erro)=> { console.log(erro) })
     }
-
-   
-
 }

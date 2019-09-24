@@ -5,6 +5,7 @@ import { ContaServiceService } from '../conta-service.service';
 import { Router } from '@angular/router';
 import { Cliente } from '../cliente';
 import { Controladora } from '../controladora';
+import { isNull } from '@angular/compiler/src/output/output_ast';
 
 @Component({
     selector: 'app-cliente',
@@ -13,46 +14,34 @@ import { Controladora } from '../controladora';
 })
 export class ClienteComponent implements OnInit {
 
-    constructor(private router: Router, private service: ClienteServiceService, private serviceConta:ContaServiceService) { }
+    constructor(private router: Router, private service: ClienteServiceService, private serviceConta: ContaServiceService) { }
 
-    clienteGeral:Cliente
-    conta:Conta
+    clienteGeral: Cliente
+    conta: Conta
 
     ngOnInit() {
-        if(Controladora.loginSetado == false){
-                this.service.buscarFixed().subscribe((result)=>{
-                this.service.setter(result)
-                Controladora.loginSetado = true     
-                Controladora.existeCliente = true 
-            })
-        }
+        if(localStorage.getItem("cliente") !== null)
+            this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
+            this.serviceConta.criaConta(this.clienteGeral.idCliente).subscribe((result) => {
+                this.serviceConta.setConta(result)
+                this.conta = result
 
-        setTimeout(() => {
-            if (Controladora.existeCliente == false) {
-                this.router.navigate(['/login'])
-            }
-            this.serviceConta.criaConta(this.service.getter().idCliente).subscribe((result)=>{
-            this.serviceConta.setConta(result)
-            this.conta = this.serviceConta.getConta()
-            this.clienteGeral = this.service.getter()
-            }, (erro)=> console.log(erro))        
-        }, 1);
-        }
-    chamaInv(){
+        })
+    }
+    
+    chamaInv() {
         this.router.navigate(['/investimento'])
     }
 
-    chamaTran(){
+    chamaTran() {
         this.router.navigate(['/transferencia'])
     }
 
-    chamaSal(){
+    chamaSal() {
         this.router.navigate(['/deposito'])
     }
 
-    chamaEmpr(){
+    chamaEmpr() {
         this.router.navigate(['/credito'])
     }
-    
-
 }

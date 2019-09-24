@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { ClienteServiceService } from './cliente-service.service';
 import { Transferencia } from './transferencia';
 import { ContaServiceService } from './conta-service.service';
+import { Conta } from './conta';
 
 const baseUrl = "http://localhost:8080/transferencia"
 
@@ -13,7 +14,8 @@ export class TransfServService {
     
     private opt:HttpParams
     private transf:Transferencia
-    
+    conta:Conta
+
     getTransf():Transferencia{
         return this.transf
     }

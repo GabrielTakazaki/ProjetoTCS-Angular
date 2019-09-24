@@ -16,66 +16,59 @@ export class InvestimentoComponent implements OnInit {
 
     private ipca: Number;
     private poupanca: Number;
-    private cdi:Number;
+    private cdi: Number;
 
     private msg: String
     private listInvest: Investimento[];
-    private listErro:Erro[]
+    private listErro: Erro[]
     constructor(private router: Router, private serviceInv: InvestimentoService, private serviceConta: ContaServiceService) { }
 
     ngOnInit() {
-        if (this.serviceConta.getConta() === undefined) {
-            this.investimento = new Investimento();
-        }
-
-        else {
-            this.chamaInv() 
-        }
-        
+        this.chamaInv()
     }
 
 
 
-    criarInvestimento(tipo: String, valor:Number) {
-        this.investimento.saldo=valor;
+    criarInvestimento(tipo: String, valor: Number) {
+        this.investimento.saldo = valor;
         this.investimento.conta = this.serviceConta.getConta().numConta;
-        this.investimento.nomeInvestimento = tipo;       
+        this.investimento.nomeInvestimento = tipo;
         this.serviceInv.createInvestimento(this.investimento).subscribe((investimento) => {
-            this.chamaInv() 
+            this.chamaInv()
             this.invest()
-            
+
         }, (error: HttpErrorResponse) => {
-                this.listErro = error.error;
-                this.listErro.forEach((i)=>{
-                    
-                    alert(i.erro)
-                });
-                
+            this.listErro = error.error;
+            this.listErro.forEach((i) => {
+
+                alert(i.erro)
+            });
+
         })
-        
+
     }
-    async chamaInv(){
+    async chamaInv() {
         setTimeout(() => {
             this.investimento = new Investimento();
             this.serviceInv.listInvestimento(this.serviceConta.getConta().numConta).subscribe((result) => {
                 this.listInvest = result;
-        console.log(this.listInvest)
-                
+                console.log(this.listInvest)
+
             }, (error: HttpErrorResponse) => {
             });
         }, 1);
     }
 
-    devolverDinheiro(investimento:Investimento){
-        this.serviceInv.retornaInv(investimento).subscribe((result)=>{
+    devolverDinheiro(investimento: Investimento) {
+        this.serviceInv.retornaInv(investimento).subscribe((result) => {
             console.log(result)
-           
-        }, (erro:HttpErrorResponse)=> {
+
+        }, (erro: HttpErrorResponse) => {
             console.log(erro.error)
         })
     }
-    
-    invest(){
+
+    invest() {
         alert('Investimento realizado')
     }
 }

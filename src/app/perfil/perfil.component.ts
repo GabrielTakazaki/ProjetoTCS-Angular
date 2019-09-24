@@ -7,28 +7,31 @@ import { Conta } from '../conta';
 import { Controladora } from '../controladora';
 
 @Component({
-  selector: 'app-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.css']
+    selector: 'app-perfil',
+    templateUrl: './perfil.component.html',
+    styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
 
-  constructor(private router: Router, private service: ClienteServiceService, private serviceConta:ContaServiceService) { }
+    constructor(private router: Router, private service: ClienteServiceService, private serviceConta: ContaServiceService) { }
 
-  clienteGeral:Cliente
-    conta:Conta
+    clienteGeral: Cliente
+    conta: Conta
 
-  ngOnInit() {
-    if(Controladora.loginSetado == false){
-      this.service.buscarFixed().subscribe((result)=>{
-      this.service.setter(result)
-      Controladora.loginSetado = true     
-      Controladora.existeCliente = true 
-  })
-}
+    ngOnInit() {
+        if(localStorage.getItem("cliente") === null){
+            localStorage.setItem("rota", "/perfil")
+            this.router.navigate(["/login"])
+        }else{
+            this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
+            this.conta = JSON.parse(localStorage.getItem("conta"))
+        }
+    }
+
+    saindo(){
+        localStorage.removeItem("cliente")
+        this.router.navigate(["/"])
+    }
 
 
-  }
-
-  
 }
