@@ -38,6 +38,7 @@ export class TransferenciaComponent implements OnInit {
             this.contas = result
             if(this.validaConta()){
                 this.fazTransferencia()
+                
             }
         })
     }
@@ -60,7 +61,11 @@ export class TransferenciaComponent implements OnInit {
         this.transf.idDebitoDTO = this.serviceConta.getConta().numConta
         this.serviceTrans.createTransf(this.transf).subscribe((result)=>{
             this.transList.push(result)
+            this.tranferiu()
         })
+    }
+    tranferiu(){
+        alert('Transferência realizada')
     }
     
     }
