@@ -4,8 +4,6 @@ import { Conta } from '../../class/conta';
 import { ContaServiceService } from '../../service/conta-service.service';
 import { Router } from '@angular/router';
 import { Cliente } from '../../class/cliente';
-import { Controladora } from '../../controladora';
-import { isNull } from '@angular/compiler/src/output/output_ast';
 
 @Component({
     selector: 'app-cliente',

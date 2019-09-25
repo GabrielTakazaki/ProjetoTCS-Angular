@@ -2,22 +2,24 @@
 <div class="container">
     <div class="row box-cadastro">
         <div class="col-12">
-                <h1>Você está a um passo de criar sua conta RestBank</h1>
-                <p class="text-center alert alert-danger" id="mensagem" [ngClass]="{'class': true}" *ngIf="msg != null && msg != 'Cadastrado'">{{msg}}</p>
+            <h1>Você está a um passo de criar sua conta RestBank</h1>
+            <div *ngIf="msgList != null"><div *ngFor="let msgs of msgList" class="alert alert-danger text-center">{{msgs.erro}}</div></div>
+            <p class="text-center alert alert-danger" id="mensagem" *ngIf="msg != null">{{msg}}</p>
             <form class="mt-5" (ngSubmit)="addCliente()">
-                <div class="form-group">
-                    <input type="text" class="form-control cadastro" aria-describedby="emailHelp" [(ngModel)]="cliente.nomeCliente" name="nomeCliente" placeholder="Nome"/>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control cadastro" maxlength="14" placeholder="CPF" mask='000.000.000-00' name="cpfCliente" [(ngModel)]="cliente.cpfCliente"/>
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control cadastro" placeholder="Senha" [(ngModel)]="cliente.password" name="password"/>
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control cadastro" placeholder="Confirme sua senha" [(ngModel)]="verificaPassword" name="verificaPassword"/>
-                </div>
-                <button type="submit" class="btn btn-cadastro btn-info">Cadastrar</button>
+                    <div class="form-group">
+                        <input type="text" class="form-control cadastro" aria-describedby="emailHelp" [(ngModel)]="cliente.nomeCliente" name="nomeCliente" placeholder="Nome" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control cadastro" maxlength="14" placeholder="CPF"
+                            mask='000.000.000-00' name="cpfCliente" [(ngModel)]="cliente.cpfCliente" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control cadastro" placeholder="Senha" [(ngModel)]="cliente.password" name="password" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control cadastro" placeholder="Confirme sua senha" [(ngModel)]="verificaPassword" name="verificaPassword" />
+                    </div>
+                    <button type="submit" class="btn btn-cadastro btn-info">Cadastrar</button>
             </form>
         </div>
     </div>

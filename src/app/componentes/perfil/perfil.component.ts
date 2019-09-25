@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { ContaServiceService } from '../../service/conta-service.service';
 import { Cliente } from '../../class/cliente';
 import { Conta } from '../../class/conta';
-import { Controladora } from '../../controladora';
 
 @Component({
     selector: 'app-perfil',

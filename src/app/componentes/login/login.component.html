@@ -2,7 +2,8 @@
 <div class="container">
     <div class="row box-login">
         <div class="col-12">
-            <p class="text-center alert alert-danger" id="mensagem" [ngClass]="{'class': true}" *ngIf="msg != null">{{msg}}</p>
+            <div *ngIf="msgList != null"><div *ngFor="let msgs of msgList" class="alert alert-danger text-center">{{msgs.erro}}</div></div>
+            <p class="text-center alert alert-danger" id="mensagem" *ngIf="msg != null">{{msg}}</p>
                 <h1>Acessar sua conta </h1>
             <form class="mt-5" (ngSubmit)="entrar()" action="efetuaLogin" method="post" >
                 
@@ -12,7 +13,7 @@
                 <div class="form-group">
                     <input type="password" class="form-control login" id="exampleInputPassword1" placeholder="Senha" [(ngModel)]="cliente.password" name="password">
                 </div>
-                <button type="submit"  [(ngModel)]="verificaCliente" id="verificaCliente" name="verificaCliente" class="btn btn-login btn-info">Login</button> 
+                <button type="submit" class="btn btn-login btn-info">Login</button> 
                 <br>
                 <br>
             </form>
