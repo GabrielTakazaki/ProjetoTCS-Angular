@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Investimento } from './investimento';
+import { Investimento } from '../class/investimento';
 
 const baseUrl: String = "http://localhost:8080"
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ContaServiceService } from '../conta-service.service';
+import { ContaServiceService } from '../../service/conta-service.service';
 import { Router } from '@angular/router';
-import { Deposito } from '../deposito';
-import { Conta } from '../conta';
-import { Cliente } from '../cliente';
+import { Deposito } from '../../class/deposito';
+import { Conta } from '../../class/conta';
+import { Cliente } from '../../class/cliente';
 
 
 @Component({

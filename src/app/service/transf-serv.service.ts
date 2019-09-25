@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { ClienteServiceService } from './cliente-service.service';
-import { Transferencia } from './transferencia';
+import { Transferencia } from '../class/transferencia';
 import { ContaServiceService } from './conta-service.service';
-import { Conta } from './conta';
+import { Conta } from '../class/conta';
 
 const baseUrl = "http://localhost:8080/transferencia"
 

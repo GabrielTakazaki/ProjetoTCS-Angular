@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteServiceService } from '../cliente-service.service';
-import { Conta } from '../conta';
-import { ContaServiceService } from '../conta-service.service';
+import { ClienteServiceService } from '../../service/cliente-service.service';
+import { Conta } from '../../class/conta';
+import { ContaServiceService } from '../../service/conta-service.service';
 import { Router } from '@angular/router';
-import { Cliente } from '../cliente';
-import { Controladora } from '../controladora';
+import { Cliente } from '../../class/cliente';
+import { Controladora } from '../../controladora';
 import { isNull } from '@angular/compiler/src/output/output_ast';
 
 @Component({

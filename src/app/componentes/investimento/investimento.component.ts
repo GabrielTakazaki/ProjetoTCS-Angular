@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Investimento } from '../investimento';
+import { Investimento } from '../../class/investimento';
 import { Router } from '@angular/router';
-import { InvestimentoService } from '../investimento-service';
-import { ContaServiceService } from '../conta-service.service';
+import { InvestimentoService } from '../../service/investimento-service';
+import { ContaServiceService } from '../../service/conta-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Erro } from '../erro';
-import { Cliente } from '../cliente';
+import { Erro } from '../../class/erro';
+import { Cliente } from '../../class/cliente';
 
 @Component({
     selector: 'app-investimento',

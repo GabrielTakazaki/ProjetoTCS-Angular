@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Credito } from '../class/credito';
-import { ContaServiceService } from '../service/conta-service.service';
+import { Credito } from '../../class/credito';
+import { ContaServiceService } from '../../service/conta-service.service';
 import { Router } from '@angular/router';
-import { CredServService } from '../service/cred-serv.service';
-import { Cliente } from '../class/cliente';
+import { CredServService } from '../../service/cred-serv.service';
+import { Cliente } from '../../class/cliente';
 
 @Component({
     selector: 'app-credito',

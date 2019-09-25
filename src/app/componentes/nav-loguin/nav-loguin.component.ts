@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ClienteServiceService } from '../cliente-service.service';
-import { ContaServiceService } from '../conta-service.service';
-import { Conta } from '../conta';
-import { Cliente } from '../cliente';
+import { ClienteServiceService } from '../../service/cliente-service.service';
+import { ContaServiceService } from '../../service/conta-service.service';
+import { Conta } from '../../class/conta';
+import { Cliente } from '../../class/cliente';
 
 @Component({
     selector: 'app-nav-loguin',

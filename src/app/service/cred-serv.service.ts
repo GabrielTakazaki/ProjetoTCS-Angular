@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ContaServiceService } from './conta-service.service';
-import { Credito } from './credito';
+import { Credito } from '../class/credito';
 
 const baseUrl = "http://localhost:8080/credito"
 

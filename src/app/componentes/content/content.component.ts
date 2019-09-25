@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as Inputmask from "inputmask";
-import { ClienteServiceService } from '../cliente-service.service';
-import { Cliente } from '../cliente';
+import { ClienteServiceService } from '../../service/cliente-service.service';
+import { Cliente } from '../../class/cliente';
 
 @Component({
   selector: 'app-content',

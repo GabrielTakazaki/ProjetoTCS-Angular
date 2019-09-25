@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as Inputmask from "inputmask";
-import { Cliente } from '../cliente';
 import { Router } from '@angular/router';
-import { ClienteServiceService } from '../cliente-service.service';
-import { Controladora } from '../controladora';
+import { ClienteServiceService } from 'src/app/service/cliente-service.service';
+import { Cliente } from 'src/app/class/cliente';
 
 @Component({
     selector: 'app-login',
@@ -46,7 +45,6 @@ export class LoginComponent implements OnInit {
             this.service.buscarCpf(this.cliente.cpfCliente).subscribe((result) => {
                 localStorage.setItem('cliente',JSON.stringify(result));
                 this.service.setter(result)
-                Controladora.existeCliente = true
                 this.router.navigate(['cliente'])
             })
 
