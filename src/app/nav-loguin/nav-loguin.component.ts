@@ -18,6 +18,11 @@ export class NavLoguinComponent implements OnInit {
     conta:Conta
 
     ngOnInit() {
+        if(localStorage.getItem("cliente") === null){
+            this.router.navigate(["/login"])
+        }else{
+            this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
+        }
         if(this.serviceConta.getConta() === undefined){
             this.serviceConta.criaConta(this.clienteGeral.idCliente).subscribe((result)=>{
                 this.serviceConta.setConta(result)

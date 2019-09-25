@@ -13,30 +13,33 @@ import { Cliente } from '../cliente';
 })
 export class DepositoComponent implements OnInit {
 
-    conta:Conta
-    deposito:Deposito
+    conta: Conta
+    deposito: Deposito
     clienteGeral: Cliente
-    
-    
+
+
     constructor(private service: ContaServiceService, private router: Router) { }
-    
-    
+
+
     ngOnInit() {
-        if(localStorage.getItem("cliente") === null){
-            this.router.navigate(["/login"])
-        }else{
-            this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
-        }
-        this.deposito = new Deposito()
-        this.conta = this.service.getConta()
-        this.deposito.idConta = this.conta.numConta
-        
+        setTimeout(() => {
+            if (localStorage.getItem("cliente") === null) {
+                this.router.navigate(["/login"])
+            } else {
+                this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
+            }
+            this.deposito = new Deposito()
+            this.conta = this.service.getConta()
+            this.deposito.idConta = this.conta.numConta
+        }, 1); 
     }
 
-    DepositarValor(){
-        this.service.depositar(this.deposito).subscribe((result)=>{
+    DepositarValor() {
+        this.service.depositar(this.deposito).subscribe((result) => {
             alert("Depósito realizado com sucesso")
-        }, (erro)=> { console.log(erro)
+            window.location.reload()
+        }, (erro) => {
+            console.log(erro)
             console.log(this.deposito)
         })
     }
