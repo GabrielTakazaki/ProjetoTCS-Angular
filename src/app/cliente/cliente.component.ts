@@ -20,6 +20,11 @@ export class ClienteComponent implements OnInit {
     conta: Conta
 
     ngOnInit() {
+        if(localStorage.getItem("cliente") === null){
+            this.router.navigate(["/login"])
+        }else{
+            this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
+        }
         if(localStorage.getItem("cliente") !== null)
             this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
             this.serviceConta.criaConta(this.clienteGeral.idCliente).subscribe((result) => {

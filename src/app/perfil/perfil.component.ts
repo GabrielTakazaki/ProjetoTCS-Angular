@@ -20,11 +20,9 @@ export class PerfilComponent implements OnInit {
 
     ngOnInit() {
         if(localStorage.getItem("cliente") === null){
-            localStorage.setItem("rota", "/perfil")
             this.router.navigate(["/login"])
         }else{
             this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
-            this.conta = JSON.parse(localStorage.getItem("conta"))
         }
     }
 

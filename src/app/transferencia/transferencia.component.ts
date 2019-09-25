@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ContaServiceService } from '../conta-service.service';
 import { Conta } from '../conta';
 import { TouchSequence } from 'selenium-webdriver';
+import { Cliente } from '../cliente';
 
 @Component({
     selector: 'app-transferencia',
@@ -20,9 +21,15 @@ export class TransferenciaComponent implements OnInit {
     private numExiste:Boolean = false
     private transList:Transferencia[]
 
+    clienteGeral:Cliente
     constructor(private serviceTrans:TransfServService,private router: Router, private serviceConta:ContaServiceService) { }
     
     ngOnInit() {
+        if(localStorage.getItem("cliente") === null){
+            this.router.navigate(["/login"])
+        }else{
+            this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
+        }
         this.serviceConta.setConta(JSON.parse(localStorage.getItem("conta")))
         this.transf = new Transferencia()
         this.transList = new Array<Transferencia>();

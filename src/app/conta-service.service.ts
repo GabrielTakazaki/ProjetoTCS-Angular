@@ -33,6 +33,6 @@ export class ContaServiceService {
     }
 
     depositar(deposito:Deposito){
-        return this.http.put<Conta>(baseUrl + "/depositar", JSON.stringify(deposito), {headers: { 'Content-Type': 'application/json' }})
+        return this.http.put(baseUrl + "/depositar", JSON.stringify(deposito), {headers: { 'Content-Type': 'application/json' }})
     }
 }

@@ -5,6 +5,7 @@ import { InvestimentoService } from '../investimento-service';
 import { ContaServiceService } from '../conta-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Erro } from '../erro';
+import { Cliente } from '../cliente';
 
 @Component({
     selector: 'app-investimento',
@@ -17,14 +18,24 @@ export class InvestimentoComponent implements OnInit {
     private ipca: Number;
     private poupanca: Number;
     private cdi: Number;
+    
 
     private msg: String
     private listInvest: Investimento[];
     private listErro: Erro[]
+    
+    clienteGeral: Cliente
+    
     constructor(private router: Router, private serviceInv: InvestimentoService, private serviceConta: ContaServiceService) { }
 
     ngOnInit() {
+        if(localStorage.getItem("cliente") === null){
+            this.router.navigate(["/login"])
+        }else{
+            this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
+        }
         this.chamaInv()
+        
     }
 
 
