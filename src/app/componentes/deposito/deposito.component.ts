@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Deposito } from '../../class/deposito';
 import { Conta } from '../../class/conta';
 import { Cliente } from '../../class/cliente';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -16,18 +17,13 @@ export class DepositoComponent implements OnInit {
     conta: Conta
     deposito: Deposito
     clienteGeral: Cliente
-
+    private msgList:[]
 
     constructor(private service: ContaServiceService, private router: Router) { }
 
 
     ngOnInit() {
         setTimeout(() => {
-            if (localStorage.getItem("cliente") === null) {
-                this.router.navigate(["/login"])
-            } else {
-                this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
-            }
             this.deposito = new Deposito()
             this.conta = this.service.getConta()
             this.deposito.idConta = this.conta.numConta
@@ -37,10 +33,12 @@ export class DepositoComponent implements OnInit {
     DepositarValor() {
         this.service.depositar(this.deposito).subscribe((result) => {
             alert("Depósito realizado com sucesso")
-            window.location.reload()
-        }, (erro) => {
-            console.log(erro)
-            console.log(this.deposito)
+            this.router.navigate(['/cliente'])
+        }, (erro:HttpErrorResponse) => {
+            this.msgList = erro.error
         })
+        setTimeout(() => {
+            this.msgList = null
+        }, 3000);
     }
 }

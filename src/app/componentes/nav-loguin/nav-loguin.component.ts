@@ -14,7 +14,7 @@ export class NavLoguinComponent implements OnInit {
 
     constructor(private router: Router, private serviceCliente: ClienteServiceService, private serviceConta: ContaServiceService) { }
 
-    clienteGeral:Cliente = JSON.parse(localStorage.getItem("cliente"))
+    clienteGeral:Cliente
     conta:Conta
 
     ngOnInit() {
@@ -23,17 +23,16 @@ export class NavLoguinComponent implements OnInit {
         }else{
             this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
         }
-        if(this.serviceConta.getConta() === undefined){
-            this.serviceConta.criaConta(this.clienteGeral.idCliente).subscribe((result)=>{
-                this.serviceConta.setConta(result)
-                this.conta = this.serviceConta.getConta();
-            })
-        }else this.conta = this.serviceConta.getConta()
+        this.serviceConta.criaConta(this.clienteGeral.idCliente).subscribe((result)=>{
+            this.serviceConta.setConta(result)
+            this.conta = this.serviceConta.getConta();
+        })
+
+        console.log(this.serviceConta.getConta())
     }
 
     saindo() {
         localStorage.removeItem("cliente")
-        localStorage.removeItem("conta")
         this.router.navigate(["/"])
     }
 

@@ -8,11 +8,10 @@
         <div class="card-header" style="text-align: center">
             <h1>Solicite um Emprestimo</h1>
         </div>
-        <div class="card-body" style="padding: 10px;">
+        <div *ngIf="msgList != null"><div *ngFor="let msgs of msgList" class="alert alert-danger text-center">{{msgs.erro}}</div></div>
+        <p class="text-center alert alert-danger" id="mensagem" *ngIf="msg != null">{{msg}}</p>
 
-            <p *ngIf="msg != null">{{msg}}</p>
-            <p class="text-center alert alert-danger" id="mensagem" [ngClass]="{'class': true}" *ngIf="msg != null">
-                {{msg}}</p>
+        <div class="card-body" style="padding: 10px;">
 
             <form (ngSubmit)="entrar()" class="mt-5">
                 <div class="form-valor">

@@ -4,6 +4,7 @@ import { ContaServiceService } from '../../service/conta-service.service';
 import { Router } from '@angular/router';
 import { CredServService } from '../../service/cred-serv.service';
 import { Cliente } from '../../class/cliente';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
     selector: 'app-credito',
@@ -13,25 +14,24 @@ import { Cliente } from '../../class/cliente';
 export class CreditoComponent implements OnInit {
 
     credito:Credito
-    msg:String
+    private msgList:[]
     clienteGeral: Cliente
+    private msg:String
+
     constructor(private serviceCredito:CredServService,private service:ContaServiceService, private router: Router) { }
 
     ngOnInit() {
-        if(localStorage.getItem("cliente") === null){
-            this.router.navigate(["/login"])
-        }else{
-            this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
-        }
-        this.credito = new Credito()
-        this.credito.idCliente = this.service.getConta().numConta
+        setTimeout(() => {
+            this.credito = new Credito()
+            this.credito.idCliente = this.service.getConta().numConta
+        }, 1);
     }
 
     queroDinheiro(){
         this.serviceCredito.pedirEmprestimo(this.credito).subscribe((result)=>{
-            this.msg = result;
-        }, (erro)=>{
-            console.log(erro)
+            
+        }, (erro:HttpErrorResponse)=>{
+            this.msgList = erro.error
         })
     }
 
