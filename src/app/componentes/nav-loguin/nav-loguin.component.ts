@@ -11,7 +11,7 @@ import { Cliente } from '../../class/cliente';
     styleUrls: ['./nav-loguin.component.css']
 })
 export class NavLoguinComponent implements OnInit {
-
+    isCollapsed = false;
     constructor(private router: Router, private serviceCliente: ClienteServiceService, private serviceConta: ContaServiceService) { }
 
     clienteGeral:Cliente

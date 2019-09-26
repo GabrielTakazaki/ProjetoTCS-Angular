@@ -21,6 +21,8 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { DepositoComponent } from './componentes/deposito/deposito.component';
 import { NavLoguinComponent } from './componentes/nav-loguin/nav-loguin.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -61,7 +63,9 @@ const appRoutes:Routes=[
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    NgxMaskModule.forRoot(options)
+    NgxMaskModule.forRoot(options),
+    CollapseModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     ClienteServiceService
