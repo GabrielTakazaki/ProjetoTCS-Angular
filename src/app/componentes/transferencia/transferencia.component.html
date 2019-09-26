@@ -7,8 +7,7 @@
 
     <div class="row box-login" >
         <div class="col-12">
-            <p class="text-center alert alert-danger" id="mensagem" [ngClass]="{'class': true}" *ngIf="msg != null">
-                {{msg}}</p>
+            <div *ngIf="msgList != null"><div *ngFor="let msgs of msgList" class="alert alert-danger text-center">{{msgs.erro}}</div></div>
             <h1>Transferencia </h1>
             <form class="mt-5" (ngSubmit)="transferir()" style="margin-left: 50px;">
 

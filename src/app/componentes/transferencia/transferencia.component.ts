@@ -6,6 +6,7 @@ import { ContaServiceService } from '../../service/conta-service.service';
 import { Conta } from '../../class/conta';
 import { TouchSequence } from 'selenium-webdriver';
 import { Cliente } from '../../class/cliente';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
     selector: 'app-transferencia',
@@ -22,6 +23,7 @@ export class TransferenciaComponent implements OnInit {
     private transList: Transferencia[]
 
     clienteGeral: Cliente
+    msgList: [];
     constructor(private serviceTrans: TransfServService, private router: Router, private serviceConta: ContaServiceService) { }
 
     ngOnInit() {
@@ -47,7 +49,6 @@ export class TransferenciaComponent implements OnInit {
             this.contas = result
             if (this.validaConta()) {
                 this.fazTransferencia()
-
             }
         })
     }
@@ -67,14 +68,13 @@ export class TransferenciaComponent implements OnInit {
     }
 
     fazTransferencia() {
+        console.log(this.transf)
         this.transf.idDebitoDTO = this.contaAtual.numConta
         this.serviceTrans.createTransf(this.transf).subscribe((result) => {
             this.transList.push(result)
-            this.tranferiu()
-        })
+            alert("Transferência realizada com sucesso!")
+        }, (erro: HttpErrorResponse) => {
+            this.msgList = erro.error
+        });
     }
-    tranferiu() {
-        alert('Transferência realizada')
-    }
-
 }

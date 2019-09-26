@@ -16,6 +16,7 @@ export class NavLoguinComponent implements OnInit {
 
     clienteGeral:Cliente
     conta:Conta
+    date:Date
 
     ngOnInit() {
         if(localStorage.getItem("cliente") === null){
@@ -26,9 +27,14 @@ export class NavLoguinComponent implements OnInit {
         this.serviceConta.criaConta(this.clienteGeral.idCliente).subscribe((result)=>{
             this.serviceConta.setConta(result)
             this.conta = this.serviceConta.getConta();
+            if(this.conta.existeEmprestimo){
+                this.date = new Date(this.conta.emprDateTime)
+                if (Date.parse(this.date.toJSON()) + 120000 < Date.now()) {
+                    alert("O tempo limite do crédito especial foi atingido. Por favor deposite o dinheiro!")
+                    this.router.navigate(['/deposito'])
+                }
+            }
         })
-
-        console.log(this.serviceConta.getConta())
     }
 
     saindo() {
