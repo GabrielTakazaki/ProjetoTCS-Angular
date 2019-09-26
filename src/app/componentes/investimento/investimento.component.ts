@@ -6,6 +6,7 @@ import { ContaServiceService } from '../../service/conta-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Erro } from '../../class/erro';
 import { Cliente } from '../../class/cliente';
+import { Conta } from 'src/app/class/conta';
 
 @Component({
     selector: 'app-investimento',
@@ -25,22 +26,29 @@ export class InvestimentoComponent implements OnInit {
     private listErro: Erro[]
     
     clienteGeral: Cliente
-    
+    conta:Conta
     constructor(private router: Router, private serviceInv: InvestimentoService, private serviceConta: ContaServiceService) { }
 
     ngOnInit() {
-        if(localStorage.getItem("cliente") === null){
-            this.router.navigate(["/login"])
-        }else{
-            this.clienteGeral = JSON.parse(localStorage.getItem("cliente"))
-        }
-        this.chamaInv()
+        setTimeout(() => {
+            this.chamaInv()
+            this.conta = this.serviceConta.getConta()
+        }, 1);
+        
         
     }
 
 
 
     criarInvestimento(tipo: String, valor: Number) {
+        if (valor > this.conta.saldoConta) {
+            this.msg = "Saldo insuficiente!"
+            return null
+        }
+        if (valor <= 0) {
+            this.msg = "Digite um valor valido"
+            return null
+        }
         this.investimento.saldo = valor;
         this.investimento.conta = this.serviceConta.getConta().numConta;
         this.investimento.nomeInvestimento = tipo;
@@ -49,12 +57,7 @@ export class InvestimentoComponent implements OnInit {
             this.invest()
 
         }, (error: HttpErrorResponse) => {
-            this.listErro = error.error;
-            this.listErro.forEach((i) => {
-
-                alert(i.erro)
-            });
-
+            console.log(error)
         })
 
     }
