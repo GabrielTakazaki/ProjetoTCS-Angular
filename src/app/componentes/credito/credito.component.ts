@@ -29,7 +29,8 @@ export class CreditoComponent implements OnInit {
 
     queroDinheiro(){
         this.serviceCredito.pedirEmprestimo(this.credito).subscribe((result)=>{
-            
+            alert("Emprestimo realizado com sucesso!")
+            this.router.navigate(["/cliente"])
         }, (erro:HttpErrorResponse)=>{
             this.msgList = erro.error
         })
