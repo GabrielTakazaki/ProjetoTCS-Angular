@@ -41,6 +41,10 @@ export class InvestimentoComponent implements OnInit {
 
 
     criarInvestimento(tipo: String, valor: Number) {
+        if(this.conta.existeEmprestimo){
+            this.msg = "Credito especial ativo!"
+            return null
+        }
         if (valor > this.conta.saldoConta) {
             this.msg = "Saldo insuficiente!"
             return null

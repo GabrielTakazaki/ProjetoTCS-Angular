@@ -17,7 +17,7 @@
                     {{clienteGeral.nomeCliente}}
                 </a>
                 <div class="saldo" style="margin-right:30px">
-                    Saldo: R${{conta.saldoConta | number:'3.1-2'}} <p *ngIf="conta.existeEmprestimo">(Emprestimo)</p>
+                    Saldo: R${{conta.saldoConta}} <p *ngIf="conta.existeEmprestimo">(Emprestimo)</p>
                 </div>
                 <div class="dropdown-content">
                     <a class="dropdown-item" routerLink="/perfil">Perfil</a>
