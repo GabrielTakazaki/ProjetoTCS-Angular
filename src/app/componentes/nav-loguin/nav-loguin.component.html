@@ -20,9 +20,9 @@
                     Saldo: R${{conta.saldoConta}} <p *ngIf="conta.existeEmprestimo">(Emprestimo)</p>
                 </div>
                 <div class="dropdown-content">
-                    <a class="dropdown-item" routerLink="/perfil">Perfil</a>
+                    <div class="dropdown-item" routerLink="/perfil">Perfil</div>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" (click)="saindo()">sair</a>
+                    <div class="dropdown-item" (click)="saindo()">Sair</div>
                 </div>
             </li>
         </ul>
