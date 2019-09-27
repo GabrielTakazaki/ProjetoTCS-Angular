@@ -68,7 +68,10 @@ export class TransferenciaComponent implements OnInit {
     }
 
     fazTransferencia() {
-        console.log(this.transf)
+        if(this.contaAtual.existeEmprestimo){
+            this.msg = "Credito especial ativo!"
+            return null
+        }
         this.transf.idDebitoDTO = this.contaAtual.numConta
         this.serviceTrans.createTransf(this.transf).subscribe((result) => {
             this.transList.push(result)
