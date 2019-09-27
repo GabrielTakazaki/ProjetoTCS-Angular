@@ -59,7 +59,7 @@ export class InvestimentoComponent implements OnInit {
         this.serviceInv.createInvestimento(this.investimento).subscribe((investimento) => {
             this.chamaInv()
             this.invest()
-
+            this.router.navigate(["/cliente"])
         }, (error: HttpErrorResponse) => {
             console.log(error)
         })
