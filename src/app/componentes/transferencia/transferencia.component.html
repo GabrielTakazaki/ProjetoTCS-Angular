@@ -1,80 +1,60 @@
 <app-nav-loguin></app-nav-loguin>
+<div class="voltar">
+    <button class="btn btn-outline-dark" routerLink="/cliente"style="text-align: right;margin-top: 17px;">
+        Voltar a conta
+    </button>
+</div>
 <div class="container">
 
-    <div class="voltar">
-        <button class="btn btn-outline-dark" routerLink="/cliente"> Voltar a conta</button>
-    </div>
 
-    <div class="row box-login" >
-        <div class="col-12">
-            <div *ngIf="msgList != null"><div *ngFor="let msgs of msgList" class="alert alert-danger text-center">{{msgs.erro}}</div></div>
-            <h1>Transferencia </h1>
-            <form class="mt-5" (ngSubmit)="transferir()" style="margin-left: 50px;">
-
-                <div class="form-conta">
-                       
-                    <input type="number" class="form-control Transferencia" maxlength="14" name="contaCliente"
-                        placeholder="Conta" [(ngModel)]="transf.idCreditoDTO">
-                        
-                </div>
-                
-                <div class="form-valor">
-                    <input type="value" class="form-control Transferencia" name="calorCliente" placeholder="Valor"
-                        [(ngModel)]="transf.valorTransferenciaDTO">
-                        
-                </div>
-                <button type="submit" class="btn btn-login btn-info">Transferir</button>
-
-            </form>
+<div class="row box-login">
+    <div class="col-12">
+        <p class="text-center alert alert-danger" id="mensagem" [ngClass]="{'class': true}" *ngIf="msg != null">
+            {{msg}}</p>
+        <h1>Transferência </h1>
+        <input type="number" class="form-control Transferencia" maxlength="14" name="contaCliente" placeholder="Conta" [(ngModel)]="transf.idCreditoDTO">   
+            <input type="value" style="margin-top: 5px;" class="form-control Transferencia" name="calorCliente" placeholder="Valor R$"[(ngModel)]="transf.valorTransferenciaDTO">
             
-        </div>
+        <form class="mt-5" (ngSubmit)="transferir()">    
+                <button type="submit" class="btn btn-login btn-info" style="margin-left: 37%; width: 26% ">Transferir</button>                   
 
-    </div>
+                <div class="row">
 
-
-    <div class="row" style="margin-left: 246px;">
-    
-        
-            <div class="card text-white bg-info mb-3" style="margin-left: -13%; width: 43%;">
+                <div class="card text-white bg-info mb-3" style="width: 50%; float:right;margin-top: 10px;">
                     <div class="card-header" style="text-align: center">
-                        <h4>Creditado</h4>
+                        <h4>Debitado</h4>
                     </div>
-                    <div class="card-body">
-                        <td style="width: 10%;">
-                            <li *ngFor="let traf of transList">
-                                <p *ngIf="traf.idCreditoDTO == contaAtual.numConta">Número da Conta: {{traf.idDebitoDTO}} <br> Valor
+                    <div class="card-body" style="margin-left: 32%">
+                        <td>
+                            <li *ngFor="let traf of transList" >
+                                <p  *ngIf="traf.idDebitoDTO == contaAtual.numConta">Número da Conta:
+                                    {{traf.idCreditoDTO}} <br> Valor
                                     transferido: {{traf.valorTransferenciaDTO}}</p>
-                            <li>
+                            </li>
                         </td>
                     </div>
                 </div>
-        
-            
-                    <div class="card text-white bg-info mb-3" style="margin-left: 1%;
-                    width: 43%;">
-                            <div class="card-header" style="text-align: center">
-                                <h4>Debitado</h4>
-                            </div>
-                            <div class="card-body">
-                                <td style="width: 10%;">
-                                    <li *ngFor="let traf of transList">
-                                        <p *ngIf="traf.idDebitoDTO == contaAtual.numConta">Número da Conta: {{traf.idCreditoDTO}} <br> Valor
-                                            transferido: {{traf.valorTransferenciaDTO}}</p>
-                                    </li>
-                                </td>
-                            </div>
+                
+                <div class="card text-white bg-info mb-3" style="width: 50%;float: right; margin-top: 10px;">
+                        <div class="card-header" style="text-align: center">
+                            <h4>Creditado</h4>
                         </div>
+                        <div class="card-body" style="margin-left: 32%">
+                            <td>
+                                <li *ngFor="let traf of transList">
+                                    <p *ngIf="traf.idCreditoDTO == contaAtual.numConta">Número da Conta:
+                                        {{traf.idDebitoDTO}} <br> Valor
+                                        transferido: {{traf.valorTransferenciaDTO}}</p>
+                                <li>
+                            </td>
+                        </div>
+                    </div>
+                </div>
             
+        </form>
+
+        
+
     </div>
-
-
-
 </div>
-
-
-
-
-
-    
-    
-    
+</div>
